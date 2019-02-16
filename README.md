@@ -1,74 +1,68 @@
-# <img src="https://i.imgur.com/XzsEQmk.png" alt="ethereum logo" width="25px" top="25px"> Cryptoeconomics.study
-  
-  
----
 
 
-## Network Visualizations
-This repository contains the network visualizatons which accompany the Cryptoeconomics.study course. The visualizations will be integrated into the coding lessons on Chainshot and will include interactive visualizations of all of the protocols we build in the course, from a central payment operator up to a Proof of Stake blockchain.
 
-This project is currently in its early development stages and requires major refactoring before building new visualizations. You can watch a [demo](https://youtu.be/PMabMK_XZ1A) of what our end vision is for the coding project and view in-depth details of our roadmap [here](https://docs.google.com/document/d/1R85zczC1-nklLXEFx-dZfQdlZexRAk8S9G9Hc3Zjkx4/edit?usp=sharing).
+**Sandbox 0**: 
+Hub with two spokes: Paypal node connected to node Bob.
+Drag a line from Reader to Paypal to connect it
+Reader has 50 💵. When the line is drawn to paypal it turns into $50
+Above both Reader and Bob are their balances as represented in Paypal’s ledger
+In the sidebar, we have Paypal’s ledger with Reader: $50, Bob: $0
+One button for Reader sending $5 to Bob
+If Reader runs out of money, Bob will send a transaction of $50 to Reader
+When Reader sends money to Bob, it’s represented as a message that travels along a link to Paypal. 
+The Paypal node flashes green, and updates it’s ledger (as well as the balance numbers above Reader and Bob)
 
-Feel free to try out the [first network visualization of Sections 2.1 - 2.2](https://k-ho.github.io/code/).
+**Text 0**:
+In the real world there are more than 2 users. Paypal looks a bit more like this:
 
-Questions? Reach out to Kevin at kevinjho1996 [at] gmail.com
+**Sandbox 1**:
+- Hub and Spoke: Paypal Node connected to 5 - 15 user nodes. Our reader watches as the nodes send messages to the Paypal node trying to spend money. The Paypal node updates it’s ledger (Subtracting money from sender, adding money to the receiver).  
+	Timing: one random node sends money to another random node every 0.5s
+User still has a button to send $5 to a random user
 
-### Contributing
-Suggestions and contributions are extremely welcome. There is also room for contributors to optimize the code as well as create visualizations for protocols that we don't cover in the course. Check out the open issues and project board and help out! :) 
+**Text 1**
+This is how centralized payment systems work. They’re super efficient and simple. (Our implementation of this Paypal operator is under 200 lines of code!) Having a single powerful server means that you can handle millions of transactions per second. This system is very fast and makes having many users easy. BUT, not everyone can use these systems.
 
-## Coding Project Outline
+**Sandbox 2** - Try to draw a line connecting a User from another country to Paypal, Paypal rejects them.
 
-### Chapter 1 - Central Payment Operator 
-- [ ] Visually distinct "Paypal Node"
-- [ ] Hub and Spoke network
-- [ ] View Paypal's state
-- [ ] Allow Paypal node to Censor and Mint money
+**Text 2**: Even users already connected could be censored. What if Paypal decides they don't want like people with hats anymore.
 
-### Chapter 2 - Networks and Synchrony Assumptions
-#### Section 2.1 - Naive P2P Network 
-- [x] Network Visualization
-- [x] message propagation 
+**Sandbox 3** - Reader’s transactions gets censored by Paypal
 
-![](https://media.giphy.com/media/EExX2XytOTdIOMaKut/giphy.gif)
-- [ ] Latency controls
-- [ ] Speed Controls (Rewind, fast forward, etc.)
+**Text 3**: Also, since Paypal is the only entity with control of everyone's balances, they can 
 
-#### Section 2.2 - Double Spends
-- [x] Visually distinct double spend message
-- [x] Display rejected transactions (invalid nonce txs)
-- [ ] Add Gamification (e.g. "send an unsuccessful double spend")
+**Sandbox 4** - Have a button “Mint $1,000” that will increase Paypal’s balance in their ledger
 
-#### Section 2.3 - 99% Fault Tolerant Consensus
-- [ ] Sidebar w/ a list of propagating messages + when transactions will timeout and whether they have been rejected or accepted by all nodes. 
-- [ ] Hovering over messages will display how many signatures a given transaction has received and from which nodes
+**Text 4**
+What if we could create an open financial system that doesn’t exclude or censor people, or allow the minting of arbitrary amounts of money? 
 
-#### Section 2.4 - Proof of Authority
-- [ ] Controls to add and remove nodes from a state of “authority”
-- [ ] Option to toggle whether or not an authority node is malicious, and then be able to both censor transactions and attempt double spends 
-- [ ] Controls to adjust the % of authority nodes that must sign off on every transaction
-- [ ] Hovering over a message will show which of the authority nodes signed off on it.
+- Anyone should be able to join the network.
+- The network should be censorship-resistant.
+- We should have more than just one entity in charge of the ledger of everyone’s balance to prevent minting
 
-### Chapter 3 - Proof of Work
-- [ ] Option to toggle nodes into miners and back again
-- [ ] Clearly display the longest chain and which nodes agree on this chain.
-- [ ] Easily expand a block and explore its contents in a separate view.
-- [ ] Visually see miners iterating through nonces and checking hashes
-- [ ] Controls to adjust amount of mining power each miner has
-- [ ] User can click a button to attempt a double spend attack
-- [ ] Users can also toggle a miner into a selfish miner.
-- [ ] Simulation of cost of mining to demonstrate when miners are profitable (and show that they lose money under the attack of selfish mining)
+Here is a basic solution: what if everyone stores the entire ledger of everyone’s money and every time they receive or want to send a transaction, they notify everybody nearby?
 
+**Sandbox 5:** P2P Paypal visualization
 
-### Chapter 4 - Proof of Stake (Casper FFG)
-- [ ] Visualize when finality is reached
-- [ ] Implement and attempt nothing at stake attacks (get slashed)
-- [ ] Users can alter the # of honest nodes
-- [ ] Implement and attempt long range revision attacks
-- [ ] Controls to adjust the stake of each node
+**Text 5:** 
+Let’s see if it passes the tests: 
+Anyone should be able to join the network:
+
+**Sandbox 6:**
+Have a paypal node in a network of nodes in country A. draw a line to paypal, censored. Draw a line to another node, you’re connected!
+
+**Text 7:**
+2. It should be censorship resistant
+
+**Sandbox 7:**
+Reader controls a node connected to 3 node, 1 of which is Paypal. Node sends transaction, paypal censors it, but the other nodes accept it.
+
+**Text 8:**
+3. We should have more than just one entity in charge of the ledger of everyone’s balance to prevent minting
+
+**Sandbox 8:** 
+Button for paypal to mint themselves money, only updates their own ledger. Everyone else’s ledge has Paypal: $0
+Paypal spends $1,000, all other nodes reject the transaction.
 
 
-### Future Visualizations
-- Sharding
-- Plasma
-- Add visualizations of your personal favorite Blockchain protocols or Cryptoeconomic mechanisms!
-
+Check out Cryptoeconomics.study to learn more!
