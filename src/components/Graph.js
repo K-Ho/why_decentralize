@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import * as d3 from 'd3';
 
-var width = 960;
-var height = 700;
+var width = '100%';
+var height = '100%';
 //Make responsive
 var force = d3.forceSimulation()
-        .force("charge", d3.forceManyBody().strength(-10000))
-        .force("center", d3.forceCenter(width / 2, height / 2));
 
 var zoom = d3.zoom();
 
@@ -23,12 +21,8 @@ var enterNode = (selection) => {
       if (d.constructor.name === 'Spender') return 20
 
     })
-  selection.append("svg:image")
-    .attr("xlink:href", d => d.gerbil)
-    .attr("x", d => -12.5)
-    .attr("y", d => -12.5)
-    .attr("height", 25)
-    .attr("width", 25)
+    .attr("cx", d=> d.x)
+    .attr("cy", d=> d.y)
 };
 
 var updateNode = (selection) => {
@@ -115,7 +109,6 @@ var resize = (selection) => {
   console.log("Resized")
   width = window.innerWidth;
   height = window.innerHeight;
-  zoomed(selection, width, height)
 };
 
 // *****************************************************
@@ -125,22 +118,23 @@ var resize = (selection) => {
 class Graph extends Component {
     componentDidMount() {
       this.d3Graph = d3.select(this.viz);
-      force.on('tick', () => {
-        // after force calculation starts, call updateGraph
-        // which uses d3 to manipulate the attributes,
-        // and React doesn't have to go through lifecycle on each tick
-        this.d3Graph.call(updateGraph);
-      });
+      // force.on('tick', () => {
+      //   // after force calculation starts, call updateGraph
+      //   // which uses d3 to manipulate the attributes,
+      //   // and React doesn't have to go through lifecycle on each tick
+      //   this.d3Graph.call(updateGraph);
+      // });
 
-      this.d3Graph.call(resize);
-      d3.select(window).on("resize", () => {
-        this.d3Graph.call(resize);
-      });
+      // this.d3Graph.call(resize);
+      // d3.select(window).on("resize", () => {
+      //   this.d3Graph.call(resize);
+      // });
     }
 
     shouldComponentUpdate(nextProps) {
       const {onClick} = this.props
       this.d3Graph = d3.select(this.viz);
+      console.log('nextPropsNodes', nextProps.nodes)
       const d3Nodes = this.d3Graph.selectAll('.node')
         .data(nextProps.nodes, (node) => node.pid);
       d3Nodes.enter().append('g').call(enterNode)
@@ -148,7 +142,7 @@ class Graph extends Component {
         onClick(d, d3.event.pageX, d3.event.pageY)
       })
       d3Nodes.exit().remove();
-      d3Nodes.call(updateNode);
+      // d3Nodes.call(updateNode);
 
       const d3Links = this.d3Graph.selectAll('.link')
         .data(nextProps.links)

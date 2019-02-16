@@ -20,6 +20,8 @@ for (const node of nodes) {
     })
   }
 }
+nodes[0].x = 100
+nodes[0].y = 100
 
 class Sandbox extends Component {
   constructor() {
@@ -83,14 +85,11 @@ class Sandbox extends Component {
   render() {
     const {messages, speed} = this.state
     return (
-          <div id = 'Graph-container'>
             <Graph
               nodes={nodes}
               links={data.links}
               messages = {messages || []}
-{/*              onClick = {this.onClickNode.bind(this)}*/}
            />
-          </div>
     );
   }
 }

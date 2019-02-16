@@ -1,5 +1,6 @@
 import React from 'react';
 import '../styles/App.css';
+import Sandbox from './Sandbox';
 
 
 
@@ -7,13 +8,14 @@ const App = () => {
   return (
     <div className="App">
     	<div id="title">
-	    	<h1> 
+	    	<h1>
 	    		Why Decentralize?
 	    	</h1>
     	</div>
     	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tempus imperdiet nulla malesuada pellentesque. Egestas fringilla phasellus faucibus scelerisque eleifend. Sed arcu non odio euismod lacinia at quis. Vitae elementum curabitur vitae nunc sed. Pharetra massa massa ultricies mi quis. Lorem sed risus ultricies tristique nulla. Enim lobortis scelerisque fermentum dui. Lacus luctus accumsan tortor posuere. Leo integer malesuada nunc vel risus commodo. Nisl nunc mi ipsum faucibus vitae aliquet nec ullamcorper. Leo vel fringilla est ullamcorper eget nulla.</p>
 
 <div class="interactive">
+  <Sandbox/>
 	<p class="helper-text">This is helper text. This helps people.</p>
 </div>
 
