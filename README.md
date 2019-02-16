@@ -65,4 +65,4 @@ Button for paypal to mint themselves money, only updates their own ledger. Every
 Paypal spends $1,000, all other nodes reject the transaction.
 
 
-Check out Cryptoeconomics.study to learn more!
+Check out [Cryptoeconomics.study](https://Cryptoeconomics.study) to learn more!
