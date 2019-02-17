@@ -70,6 +70,8 @@ Good news! Lots of people are learning about and building such networks.</p>
     </div>
 <h3 id="bottom">Check out <a href="http://cryptoeconomics.study">cryptoeconomics.study</a> to learn more!</h3>
 
+<img src="cryptoecon.png" id="logo" width="100px"></img>
+
 </div>
   );
 }

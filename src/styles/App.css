@@ -13,7 +13,7 @@ body {
 #title {
 	margin: auto;
 	width: 90%;
-	padding-top: 45px;
+	padding-top: 75px;
 	padding-bottom: 20px;
 	text-align: center;
 }
@@ -50,6 +50,12 @@ body {
 	color: white;
 }
 
+#logo {
+width: 25px;
+margin-left: 300px;
+padding-bottom: 40px;
+}
+
 .ledger-row {
 	display: flex;
 	flex-direction: row;
@@ -57,7 +63,7 @@ body {
 }
 
 #bottom {
-	padding-bottom: 400px;
+	padding-bottom: 10px;
 }
 
 #world {
@@ -164,6 +170,7 @@ svg {
 }
 
 #venmo-database {
-	font-size: 14px;
+	font-size: 16px;
+	padding-bottom: 3px;
 	font-weight: bold;
 }
