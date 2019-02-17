@@ -6,6 +6,8 @@ import SandboxTwo from './SandboxTwo/SandboxTwo';
 import SandboxThree from './SandboxThree/SandboxThree';
 import SandboxFour from './SandboxFour/SandboxFour';
 
+import SandboxFive from './SandboxFive/SandboxFive';
+
 
 
 const App = () => {
@@ -52,7 +54,10 @@ const App = () => {
     </div>
 
 <p>Purus ut faucibus pulvinar elementum integer enim. Sagittis id consectetur purus ut faucibus pulvinar elementum integer enim. Egestas dui id ornare arcu odio ut sem. Consequat mauris nunc congue nisi vitae suscipit. Morbi tincidunt ornare massa eget. Nec tincidunt praesent semper feugiat. Ac auctor augue mauris augue neque gravida in. Nunc sed blandit libero volutpat sed cras ornare arcu dui. Mi ipsum faucibus vitae aliquet nec ullamcorper sit amet risus. Sed elementum tempus egestas sed sed risus. In hendrerit gravida rutrum quisque non tellus. Molestie at elementum eu facilisis. Odio aenean sed adipiscing diam donec adipiscing tristique. Sollicitudin tempor id eu nisl. Vel pharetra vel turpis nunc eget lorem dolor.</p>
-
+    <div className="interactive">
+    <SandboxFive/>
+    <p className="helper-text">Try to connect to transact with your friends!</p>
+    </div>
 <p>Dui sapien eget mi proin sed libero enim sed. Sapien eget mi proin sed libero enim sed faucibus. Augue ut lectus arcu bibendum at varius. Odio tempor orci dapibus ultrices in iaculis nunc. Mauris cursus mattis molestie a iaculis at erat pellentesque. Quam nulla porttitor massa id. Sapien eget mi proin sed libero enim. Eget mauris pharetra et ultrices neque ornare. Eu nisl nunc mi ipsum faucibus vitae aliquet nec ullamcorper. Iaculis eu non diam phasellus vestibulum lorem sed. Scelerisque fermentum dui faucibus in. Eget egestas purus viverra accumsan in nisl. Duis ultricies lacus sed turpis tincidunt id aliquet.</p>
 
 <p>Augue interdum velit euismod in pellentesque massa placerat duis ultricies. Arcu risus quis varius quam quisque id diam vel quam. Semper viverra nam libero justo. Arcu non sodales neque sodales ut etiam sit. Et netus et malesuada fames. Consequat mauris nunc congue nisi vitae suscipit tellus mauris. Ligula ullamcorper malesuada proin libero nunc consequat interdum varius sit. Viverra nibh cras pulvinar mattis nunc sed blandit. Sed id semper risus in. Et netus et malesuada fames ac turpis egestas integer. Malesuada nunc vel risus commodo viverra maecenas accumsan. Sagittis aliquam malesuada bibendum arcu vitae elementum curabitur vitae nunc. Netus et malesuada fames ac turpis egestas sed tempus urna. Consequat ac felis donec et odio pellentesque diam volutpat. Quis lectus nulla at volutpat diam ut venenatis tellus. Congue mauris rhoncus aenean vel elit. Nunc lobortis mattis aliquam faucibus purus. Sapien faucibus et molestie ac feugiat sed lectus. Mauris pellentesque pulvinar pellentesque habitant morbi. Gravida quis blandit turpis cursus in hac.</p>
