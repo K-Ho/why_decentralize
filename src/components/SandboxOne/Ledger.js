@@ -12,7 +12,7 @@ class Ledger extends Component {
 			users.shift()
 			shift = 1
 		}
-		const usernames = ['@unicorn', '@tiger']
+		const usernames = ['@unicorn', '@tiger', '@hamster', '@ribbit', '@fox', '@koala', '@chicken']
 
 		const balances = users.map( (x, i) => {
 			return <div className="ledger-row">
