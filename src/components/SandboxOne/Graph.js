@@ -4,63 +4,16 @@ import * as d3 from 'd3';
 var width = '400px';
 var height = '300px';
 
-var zoom = d3.zoom();
-
 // *****************************************************
 // ** d3 functions to manipulate attributes
 // *****************************************************
 
-// **** DRAG *****
-const drag = d3.drag()
-  .on('start', (d) => {
-    // console.log('start', d)
-    d.fx = d.x;
-    d.fy = d.y;
-  })
-  .on('drag', (d) => {
-    // console.log('drag', d)
-    d.fx = d3.event.x;
-    d.fy = d3.event.y;
-  })
-  .on('end', (d) => {
-    d.fx = null;
-    d.fy = null;
-  });
-
-  function mousemove() {
-    if (!mousedownNode) return;
-    // update drag line
-    dragLine.attr('x2', d3.mouse(this)[0])
-      .attr('y2', d3.mouse(this)[1])
-  }
-
-  function mouseup() {
-    // console.log('MOUSEUP')
-    slashing = false
-    if (mousedownNode) {
-      // console.log('hello')
-      dragLine
-        .classed('hidden', true)
-      mousedownNode = null
-      //Check if we're snapped to a node, then append a new line
-    }
-  }
-
-  function slash(e) {
-    // console.log("should slash", e)
-  }
-
-let dragLine
 
 // **** Node Functions  ****
 
 let nodes
-let mousedownNode
-let linkCreated = false
 let graph
-let createdLink
 
-let slashing = false
 
 var enterNode = (selection) => {
   selection.classed('node', true)
@@ -76,36 +29,6 @@ var enterNode = (selection) => {
     .attr("cx", d=> d.x)
     .attr("cy", d=> d.y)
     .attr("fill", d=> d.color)
-    .on('mousedown', (d) => {
-      if (linkCreated) return
-      // select node
-      mousedownNode = d;
-
-      // reposition drag line
-      dragLine
-        .classed('hidden', false)
-        .attr("x1", mousedownNode.x)
-        .attr("y1", mousedownNode.y)
-        .attr("x2", mousedownNode.x)
-        .attr("y2", mousedownNode.y);
-    })
-    .on('mouseup', function (d) {
-            // console.log(selection, nodes)
-      if (!mousedownNode) return;
-      if (d.constructor.name != 'Paypal') return;
-      dragLine
-        .classed('hidden', true)
-      graph.insert('line', '.node')
-        .attr('stroke-width', 2)
-        .attr('stroke', 'grey')
-        .attr("x1", mousedownNode.x)
-        .attr("y1", mousedownNode.y)
-        .attr("x2", d.x)
-        .attr("y2", d.y)
-        .on('mousemove', slash)
-      linkCreated = true
-      createdLink()
-    })
 
     selection.append("text")
       .classed('noselect', true)
@@ -113,36 +36,6 @@ var enterNode = (selection) => {
       .attr("x", d => (d.x - 22))
       .attr("y", d=> (d.y +15))
       .text((d) => {if(d.constructor.name != 'Paypal') return (d.emoji)})
-      .on('mousedown', (d) => {
-        if (linkCreated) return
-        // select node
-        mousedownNode = d;
-
-        // reposition drag line
-        dragLine
-          .classed('hidden', false)
-          .attr("x1", mousedownNode.x)
-          .attr("y1", mousedownNode.y)
-          .attr("x2", mousedownNode.x)
-          .attr("y2", mousedownNode.y);
-      })
-      .on('mouseup', function (d) {
-              // console.log(selection, nodes)
-        if (!mousedownNode) return;
-        if (d.constructor.name != 'Paypal') return;
-        dragLine
-          .classed('hidden', true)
-        graph.insert('line', '.node')
-          .attr('stroke-width', 2)
-          .attr('stroke', 'grey')
-          .attr("x1", mousedownNode.x)
-          .attr("y1", mousedownNode.y)
-          .attr("x2", d.x)
-          .attr("y2", d.y)
-          .on('mousemove', slash)
-        linkCreated = true
-        createdLink()
-      })
 
 
     selection.append("svg:image")
@@ -151,23 +44,7 @@ var enterNode = (selection) => {
     .attr("y", d => (d.y-14))
     .attr("height", d => d.img ? 28 : 0)
     .attr("width", d => d.img ? 28 : 0)
-    .on('mouseup', function (d) {
-            // console.log(selection, nodes)
-      if (!mousedownNode) return;
-      if (d.constructor.name != 'Paypal') return;
-      dragLine
-        .classed('hidden', true)
-      graph.insert('line', '.node')
-        .attr('stroke-width', 2)
-        .attr('stroke', 'grey')
-        .attr("x1", mousedownNode.x)
-        .attr("y1", mousedownNode.y)
-        .attr("x2", d.x)
-        .attr("y2", d.y)
-        .on('mousemove', slash)
-      linkCreated = true
-      createdLink()
-    })
+
 };
 
 var updateNode = (selection) => {
@@ -278,27 +155,14 @@ class Graph extends Component {
     componentDidMount() {
       graph = d3.select(this.viz);
       this.d3Graph = d3.select(this.viz);
-      dragLine = this.d3Graph.append('line')
-        .attr('class', 'dragline hidden')
-        .attr('stroke-width', 2)
-        .attr('stroke', 'lightgrey')
     }
 
     shouldComponentUpdate(nextProps) {
       nodes = nextProps.nodes
       const {onClick} = this.props
-      createdLink = this.props.createdLink
       this.d3Graph = d3.select(this.viz);
       d3.select(this.svg)
-        .on('mousemove', mousemove)
-        .on('mouseup', mouseup)
-        .on('mousedown', (d) => {
-          // select node
-          slashing = (mousedownNode == null);
-          // console.log("slashing:", slashing)
 
-          // reposition drag line
-        })
       const d3Nodes = this.d3Graph.selectAll('.node')
         .data(nextProps.nodes, (node) => node.pid);
       d3Nodes.enter().append('g').call(enterNode)
