@@ -39,11 +39,10 @@ nodes[2].y = 270
 
 nodes[0].color = "#0089FF"
 nodes[0].img = "venmo.svg"
-
 nodes[1].emoji = '🦄'
 nodes[2].emoji = '🐯'
 
-class Sandbox extends Component {
+class SandboxOne extends Component {
   constructor() {
     super()
     this.state = {
@@ -128,4 +127,4 @@ class Sandbox extends Component {
   }
 }
 
-export default Sandbox;
+export default SandboxOne;
