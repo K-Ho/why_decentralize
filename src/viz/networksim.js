@@ -29,7 +29,6 @@ class NetworkSimulator {
     newPeer.network = this
     this.agents.push(newPeer)
     this.peers[newPeer.pid] = [Paypal]
-
   }
 
   broadcast (sender, message) {

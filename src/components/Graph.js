@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import * as d3 from 'd3';
 
-var width = '100%';
-var height = '100%';
+var width = '400px';
+var height = '300px';
 
 var zoom = d3.zoom();
 
@@ -17,7 +17,7 @@ var enterNode = (selection) => {
   selection.classed('node', true)
     .append('circle')
     .attr("r", d=>{
-      if (d.constructor.name === 'Paypal') return 20
+      if (d.constructor.name === 'Paypal') return 40
       return 10
     })
     .attr("cx", d=> d.x)
