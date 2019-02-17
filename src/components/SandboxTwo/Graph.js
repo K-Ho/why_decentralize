@@ -156,6 +156,24 @@ var bigX = ()=>{
   .transition()
   .duration(400)
   .attr('opacity', d=> 0)
+
+  graph
+  .append('text')
+  .classed('noselect', true)
+  .attr('font-size', 25)
+  .attr('fill', 'red')
+  .attr('x', d=> nodes[0].x-100)
+  .attr('y', d=> (nodes[0].y - 50))
+  .text('Wrong Country')
+  .attr('opacity', d=> 0)
+  .transition()
+  .duration(500)
+  .attr('opacity', d=> 1)
+  .transition()
+  .duration(400)
+  .attr('opacity', d=> 0)
+  .remove()
+
 }
 
 var updateNode = (selection) => {

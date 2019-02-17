@@ -19,9 +19,9 @@ const App = () => {
 	    	</h1>
         <h6>Made by <a href="http://gokulan.me">Goki</a> and <a href="http://kevinjho.co">Kevin</a> during ETHDenver 2019</h6>
     	</div>
-    	<p>There’s a lot of talk in the blockchain space about <strong>decentralization</strong>, but what is it about centralization that we wish to undo? Is there really anything wrong with centralized systems?  Let’s dig deeper. We’ll show you what really happens when you (🦄) use a centralized financial system like Venmo or your bank. </p>
+    	<p>Hey there, 🦄! There’s a lot of talk about "blockchains" about <strong>decentralization</strong>, but what is it about centralization that we wish to undo? Is there really anything wrong with centralized systems?  Let’s dig deeper. We’ll show you what really happens when you use a centralized financial system like Venmo or your bank. </p>
           <br/>
-          <p className="helper-text">Draw a line from yourself to Venmo to join.<br/>Then try sending some money to @tiger!</p>
+          <p className="helper-text">Draw a line from yourself (🦄) to Venmo to join.<br/>Then try sending some money to @tiger!</p>
         <div className="interactive">
             <Sandbox/>
         </div>
@@ -36,7 +36,7 @@ const App = () => {
 <p>This is how centralized payment systems work. They’re super efficient and simple. (Our implementation of this Paypal operator is under 200 lines of code!) Having a single powerful server means that you can handle millions of transactions per second. This system is very fast and makes having many users easy. But not everyone can use these systems. 1.7 billion adults, largely in developing countries, remain unbanked.
  </p>
 <br/>
- <p className="helper-text">Try to connect to transact with your friends!</p>
+ <p className="helper-text">Try to connect 🦄 to Venmo to transact with your friends!</p>
 <div className="interactive">
     <SandboxTwo/>
 </div>
@@ -49,13 +49,14 @@ const App = () => {
     <SandboxThree/>
     </div>
 <br/>
-<p>Centralized financial systems are not required to be transparent about their internal processes. Besides censorship, it is possible for other subtler abuses of power. The lack of transparency allows central operators like Wells Frogo to mint arbitrary amounts of money for those at the top. We put a lot of trust in central operators to keep our funds secure, and for banks, we trust that they won't print so much money that everyone's money becomes worthless.</p>
+<p>Centralized financial systems are not required to be transparent about their internal processes. Besides censorship, it is possible for other subtler abuses of power. The lack of transparency allows central operators like Wells Frogo to mint arbitrary amounts of money for those at the top. </p>
 <br/>
 <p className="helper-text">You're paypal! Click to mint money for frog!</p>
     <div className="interactive">
     <SandboxFour/>
 
     </div>
+    <p>We put a lot of trust in central operators to keep our funds secure, and for banks, we trust that they won't print so much money that everyone's money becomes worthless.</p>
     <br/>
 <p>What if we could create an open financial system that doesn’t exclude or censor people, or allow the minting of arbitrary amounts of money? <br/><br/>
 

@@ -75,7 +75,7 @@ class SandboxOne extends Component {
 
   componentDidMount() {
     this.timer = d3.interval(this.tick.bind(this), TICK_LENGTH/this.state.speed);
-    d3.interval(this.randomSpend.bind(this), 2000);
+    d3.interval(this.randomSpend.bind(this), 7000);
   }
 
   randomSpend() {
