@@ -169,7 +169,7 @@ class Graph extends Component {
 
     shouldComponentUpdate(nextProps) {
       nodes = nextProps.nodes
-      const {onClick} = this.props
+      const {onClick, makeLink} = this.props
       this.d3Graph = d3.select(this.viz);
       d3.select(this.svg)
         .on('mousemove', mousemove)
