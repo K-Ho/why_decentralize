@@ -29,11 +29,17 @@ data.links.push({
     })
 
 nodes[0].x = 200
-nodes[0].y = 150
-nodes[1].x = 50
-nodes[1].y = 250
-nodes[2].x = 350
-nodes[2].y = 250
+nodes[0].y = 90
+
+nodes[1].x = 80
+nodes[1].y = 230
+nodes[2].x = 320
+nodes[2].y = 230
+
+nodes[0].color = "#0089FF"
+nodes[0].img = "venmo.svg"
+nodes[1].emoji = '🦄'
+nodes[2].emoji = '🐯'
 
 class Sandbox extends Component {
   constructor() {
@@ -108,6 +114,7 @@ class Sandbox extends Component {
           createdLink = {this.createdLink.bind(this)}
         />
         <Ledger
+          linked = {!disabled}
           paypal = {network.paypal}
         />
         <Controls

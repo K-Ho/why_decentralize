@@ -67,10 +67,15 @@ var enterNode = (selection) => {
     .append('circle')
     .attr("r", d => {
       if (d.constructor.name === 'Paypal') return 40
-      return 12
+      return 0
+    })
+    .attr("xlink:href", d => {
+      if (d.constructor.name != 'Paypal') return;
+      return d.img
     })
     .attr("cx", d=> d.x)
     .attr("cy", d=> d.y)
+    .attr("fill", d=> d.color)
     .on('mousedown', (d) => {
       if (linkCreated) return
       // select node
@@ -104,17 +109,72 @@ var enterNode = (selection) => {
 
     selection.append("text")
       .classed('noselect', true)
-      .attr("x", d => (d.x - 8))
-      .attr("y", d=> (d.y - 17))
-      // .attr("dy", ".35em")
-      .text((d) => {if(d.constructor.name != 'Paypal') return (nodes[0].state[d.pid].balance + '💵')});
+      .attr('font-size', 40)
+      .attr("x", d => (d.x - 22))
+      .attr("y", d=> (d.y +15))
+      .text((d) => {if(d.constructor.name != 'Paypal') return (d.emoji)})
+      .on('mousedown', (d) => {
+        if (linkCreated) return
+        // select node
+        mousedownNode = d;
+
+        // reposition drag line
+        dragLine
+          .classed('hidden', false)
+          .attr("x1", mousedownNode.x)
+          .attr("y1", mousedownNode.y)
+          .attr("x2", mousedownNode.x)
+          .attr("y2", mousedownNode.y);
+      })
+      .on('mouseup', function (d) {
+              console.log(selection, nodes)
+        if (!mousedownNode) return;
+        if (d.constructor.name != 'Paypal') return;
+        dragLine
+          .classed('hidden', true)
+        graph.insert('line', '.node')
+          .attr('stroke-width', 2)
+          .attr('stroke', 'grey')
+          .attr("x1", mousedownNode.x)
+          .attr("y1", mousedownNode.y)
+          .attr("x2", d.x)
+          .attr("y2", d.y)
+          .on('mousemove', slash)
+        linkCreated = true
+        createdLink()
+      })
+
+
+    selection.append("svg:image")
+    .attr("xlink:href", d => d.img)
+    .attr("x", d => (d.x-20))
+    .attr("y", d => (d.y-20))
+    .attr("height", d => d.img ? 40 : 0)
+    .attr("width", d => d.img ? 40 : 0)
+    .on('mouseup', function (d) {
+            console.log(selection, nodes)
+      if (!mousedownNode) return;
+      if (d.constructor.name != 'Paypal') return;
+      dragLine
+        .classed('hidden', true)
+      graph.insert('line', '.node')
+        .attr('stroke-width', 2)
+        .attr('stroke', 'grey')
+        .attr("x1", mousedownNode.x)
+        .attr("y1", mousedownNode.y)
+        .attr("x2", d.x)
+        .attr("y2", d.y)
+        .on('mousemove', slash)
+      linkCreated = true
+      createdLink()
+    })
 };
 
 var updateNode = (selection) => {
-  selection.attr("transform", (d) => "translate(" + d.x + "," + d.y + ")")
+  selection
     .attr('fill', (d) => {
-      // return d3.color(d.color)
-      //   .brighter(0.5)
+      if (d.constructor.name !== 'Paypal') return
+      console.log('update', d.state)
       return d.color
     })
     .attr('stroke', (d) => d.color)
@@ -140,13 +200,26 @@ var updateLink = (selection) => {
 // **** Message Functions  ****
 var enterMessage = (selection) => {
   selection.classed('message', true)
-    .attr("r", 6)
-    .attr("fill", d => '#' + d.message.sig.slice(2,8))
-    .attr("fill-opacity", 0.5)
-    .attr('stroke-width', (d) => 3)
-    .attr('stroke', (d) => '#' + d.message.sig.slice(2,8))
-    .attr("cx", d=> getNodeById(d.sender).x)
-    .attr("cy", d=> getNodeById(d.sender).y)
+    .classed('noselect', true)
+    .attr('font-size', 30)
+    .attr("x", d=> (getNodeById(d.sender).x- 15))
+    .attr("y", d=> (getNodeById(d.sender).y + 10))
+    .text('💵')
+    .append('tspan')
+    .text('🦄➡️🐯')
+    .attr('font-size', 15)
+    .attr('dx', -38)
+    .attr('dy', 12)
+
+
+
+    // .attr("r", 6)
+    // .attr("fill", d => '#' + d.message.sig.slice(2,8))
+    // .attr("fill-opacity", 0.5)
+    // .attr('stroke-width', (d) => 3)
+    // .attr('stroke', (d) => '#' + d.message.sig.slice(2,8))
+    // .attr("cx", )
+    // .attr("cy", )
 }
 
 var getNodeById = (id) => {
@@ -171,8 +244,30 @@ var updateMessage = (selection) => {
   .transition()
   .duration(300)
   .ease(d3.easeLinear)
-  .attr("cx", d => getMsgPos(d,'x'))
-  .attr("cy", d => getMsgPos(d, 'y'))
+  .attr("x", d => (getMsgPos(d,'x')- 15))
+  .attr("y", d => (getMsgPos(d, 'y')+ 10))
+}
+
+var exitMessage = (selection) => {
+  if(!selection.size()) return
+  graph
+  .insert('circle', '.node')
+  .attr('fill',
+    (nodes[0].state[nodes[1].pid].balance === 0) ? 'red' :
+    '#7ed321')
+  .attr('cx', d=> nodes[0].x)
+  .attr('cy', d=> nodes[0].y)
+  .attr('r', d=> 47)
+  .attr('opacity', d=> 0)
+  .transition()
+  .duration(400)
+  .attr('opacity', d=> 1)
+  .transition()
+  .duration(400)
+  .attr('opacity', d=> 0)
+  // .ease(d3.easeLinear)
+  // .attr("x", d => (getMsgPos(d,'x')- 15))
+  // .attr("y", d => (getMsgPos(d, 'y')+ 10))
 }
 
 // *****************************************************
@@ -211,6 +306,7 @@ class Graph extends Component {
       //   onClick(d, d3.event.pageX, d3.event.pageY)
       // })
       d3Nodes.exit().remove();
+      d3Nodes.call(updateNode)
 
       const d3Links = this.d3Graph.selectAll('.link')
         .data(nextProps.links)
@@ -224,8 +320,8 @@ class Graph extends Component {
           message.recipient + ':' +
           message.sender
         });
-      const msgEnter = d3Messages.enter().insert('circle', '.node').call(enterMessage);
-      d3Messages.exit().remove();
+      const msgEnter = d3Messages.enter().insert('text', '.node').call(enterMessage);
+      d3Messages.exit().call(exitMessage).remove() //remove();
       d3Messages.merge(msgEnter).call(updateMessage);
 
 
