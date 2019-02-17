@@ -17,6 +17,7 @@ const App = () => {
 	    	<h1>
 	    		Why Decentralize?
 	    	</h1>
+        <h6>Made by <a href="http://gokulan.me">Goki</a> and <a href="http://kevinjho.co">Kevin</a> during ETHDenver 2019</h6>
     	</div>
     	<p>There’s a lot of talk in the blockchain space about <strong>decentralization</strong>, but what is it about centralization that we wish to undo? Is there really anything wrong with centralized systems?  Let’s dig deeper. We’ll show you what really happens when you (🦄) use a centralized financial system like Venmo or your bank. </p>
           <br/>

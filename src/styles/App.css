@@ -10,6 +10,10 @@ body {
 	background-color: #eee;
 }
 
+h6 {
+	color: grey;
+}
+
 #title {
 	margin: auto;
 	width: 90%;
@@ -64,6 +68,8 @@ padding-bottom: 40px;
 
 #bottom {
 	padding-bottom: 10px;
+	font-weight: 400;
+	font-size: 18px;
 }
 
 #world {
