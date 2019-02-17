@@ -1,6 +1,7 @@
 import React from 'react';
 import '../styles/App.css';
 import Sandbox from './Sandbox';
+import SandboxOne from './SandboxOne/SandboxOne';
 
 
 
@@ -20,6 +21,12 @@ const App = () => {
 </div>
 
 <p>In the real world there are more than 2 users. A centralized payment network looks a bit more like this. </p>
+
+<div className="interactive">
+    <SandboxOne/>
+  <p className="helper-text">Draw a line from yourself to Venmo to connect. Then try sending some money to 🐯!</p>
+</div>
+
 
 <p>Nunc pulvinar sapien et ligula. Orci ac auctor augue mauris augue neque gravida in. Facilisis volutpat est velit egestas dui id ornare. Ullamcorper morbi tincidunt ornare massa. Eleifend donec pretium vulputate sapien nec. Non blandit massa enim nec dui nunc mattis enim. Nisl nunc mi ipsum faucibus vitae aliquet nec. Pellentesque habitant morbi tristique senectus et netus et malesuada. Nisi vitae suscipit tellus mauris a diam maecenas sed enim. Aliquam vestibulum morbi blandit cursus risus at ultrices. Consequat semper viverra nam libero justo laoreet sit amet cursus. Turpis cursus in hac habitasse platea dictumst quisque sagittis. Arcu cursus vitae congue mauris rhoncus aenean vel elit scelerisque. Interdum posuere lorem ipsum dolor sit amet consectetur adipiscing elit. Purus non enim praesent elementum facilisis leo vel.</p>
 <p>Volutpat odio facilisis mauris sit amet massa vitae tortor. Vulputate eu scelerisque felis imperdiet proin fermentum leo vel. Mattis enim ut tellus elementum sagittis vitae. Nulla pellentesque dignissim enim sit amet. Pharetra massa massa ultricies mi quis hendrerit dolor magna. Arcu non sodales neque sodales. Sit amet purus gravida quis blandit. Netus et malesuada fames ac. Et malesuada fames ac turpis. Tincidunt lobortis feugiat vivamus at augue. Semper quis lectus nulla at volutpat diam. Dictumst quisque sagittis purus sit amet. Tellus id interdum velit laoreet id donec ultrices tincidunt arcu. Imperdiet dui accumsan sit amet. Id porta nibh venenatis cras. Ultrices mi tempus imperdiet nulla malesuada pellentesque elit eget gravida. Adipiscing elit pellentesque habitant morbi tristique senectus et. Lectus mauris ultrices eros in cursus turpis massa.</p>
