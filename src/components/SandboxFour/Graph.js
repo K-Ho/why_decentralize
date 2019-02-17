@@ -4,63 +4,16 @@ import * as d3 from 'd3';
 var width = '400px';
 var height = '300px';
 
-var zoom = d3.zoom();
-
 // *****************************************************
 // ** d3 functions to manipulate attributes
 // *****************************************************
 
-// **** DRAG *****
-const drag = d3.drag()
-  .on('start', (d) => {
-    // console.log('start', d)
-    d.fx = d.x;
-    d.fy = d.y;
-  })
-  .on('drag', (d) => {
-    // console.log('drag', d)
-    d.fx = d3.event.x;
-    d.fy = d3.event.y;
-  })
-  .on('end', (d) => {
-    d.fx = null;
-    d.fy = null;
-  });
-
-  function mousemove() {
-    if (!mousedownNode) return;
-    // update drag line
-    dragLine.attr('x2', d3.mouse(this)[0])
-      .attr('y2', d3.mouse(this)[1])
-  }
-
-  function mouseup() {
-    // console.log('MOUSEUP')
-    slashing = false
-    if (mousedownNode) {
-      // console.log('hello')
-      dragLine
-        .classed('hidden', true)
-      mousedownNode = null
-      //Check if we're snapped to a node, then append a new line
-    }
-  }
-
-  function slash(e) {
-    // console.log("should slash", e)
-  }
-
-let dragLine
 
 // **** Node Functions  ****
 
 let nodes
-let mousedownNode
-let linkCreated = false
 let graph
-let createdLink
-
-let slashing = false
+let minted = 0
 
 var enterNode = (selection) => {
   selection.classed('node', true)
@@ -76,27 +29,6 @@ var enterNode = (selection) => {
     .attr("cx", d=> d.x)
     .attr("cy", d=> d.y)
     .attr("fill", d=> d.color)
-    .on('mousedown', (d) => {
-      if (linkCreated) return
-      // select node
-      mousedownNode = d;
-
-      // reposition drag line
-      dragLine
-        .classed('hidden', false)
-        .attr("x1", mousedownNode.x)
-        .attr("y1", mousedownNode.y)
-        .attr("x2", mousedownNode.x)
-        .attr("y2", mousedownNode.y);
-    })
-    .on('mouseup', function (d) {
-            // console.log(selection, nodes)
-      if (!mousedownNode) return;
-      if (d.constructor.name != 'Paypal') return;
-      dragLine
-        .classed('hidden', true)
-      bigX()
-    })
 
     selection.append("text")
       .classed('noselect', true)
@@ -104,26 +36,6 @@ var enterNode = (selection) => {
       .attr("x", d => (d.x - 22))
       .attr("y", d=> (d.y +15))
       .text((d) => {if(d.constructor.name != 'Paypal') return (d.emoji)})
-      .on('mousedown', (d) => {
-        if (linkCreated) return
-        // select node
-        mousedownNode = d;
-
-        // reposition drag line
-        dragLine
-          .classed('hidden', false)
-          .attr("x1", mousedownNode.x)
-          .attr("y1", mousedownNode.y)
-          .attr("x2", mousedownNode.x)
-          .attr("y2", mousedownNode.y);
-      })
-      .on('mouseup', function (d) {
-              // console.log(selection, nodes)
-        if (!mousedownNode) return;
-        if (d.constructor.name != 'Paypal') return;
-        dragLine
-          .classed('hidden', true)
-      })
 
 
     selection.append("svg:image")
@@ -132,31 +44,8 @@ var enterNode = (selection) => {
     .attr("y", d => (d.y-14))
     .attr("height", d => d.img ? 28 : 0)
     .attr("width", d => d.img ? 28 : 0)
-    .on('mouseup', function (d) {
-            // console.log(selection, nodes)
-      if (!mousedownNode) return;
-      if (d.constructor.name != 'Paypal') return;
-      dragLine
-        .classed('hidden', true)
-      bigX()
-    })
-};
 
-var bigX = ()=>{
-  graph
-  .insert('circle', '.node')
-  .attr('fill', 'red')
-  .attr('cx', d=> nodes[0].x)
-  .attr('cy', d=> nodes[0].y)
-  .attr('r', d=> 40)
-  .attr('opacity', d=> 0)
-  .transition()
-  .duration(400)
-  .attr('opacity', d=> 1)
-  .transition()
-  .duration(400)
-  .attr('opacity', d=> 0)
-}
+};
 
 var updateNode = (selection) => {
   selection
@@ -229,6 +118,40 @@ const getMsgPos = (msg, coord) => {
   return progress * (recCoord - sentCoord) + sentCoord
 }
 
+var mint = () => {
+  graph
+  .insert('circle', '.node')
+  .attr('fill', '#7ed321')
+  .attr('cx', d=> nodes[4].x-2)
+  .attr('cy', d=> nodes[4].y)
+  .attr('r', d=> 25)
+  .attr('opacity', d=> 0)
+  .transition()
+  .duration(300)
+  .attr('opacity', d=> 1)
+  .transition()
+  .duration(400)
+  .attr('opacity', d=> 0)
+  .remove()
+
+  graph
+  .append('text')
+  .classed('noselect', true)
+  .attr('font-size', 30)
+  .attr('x', d=> nodes[0].x-30)
+  .attr('y', d=> (nodes[0].y - 30))
+  .text('🐸💰')
+  .attr('opacity', d=> 0)
+  .transition()
+  .duration(300)
+  .attr('opacity', d=> 1)
+  .transition()
+  .duration(400)
+  .attr('opacity', d=> 0)
+  .remove()
+
+}
+
 var updateMessage = (selection) => {
   selection
   .transition()
@@ -268,27 +191,14 @@ class Graph extends Component {
     componentDidMount() {
       graph = d3.select(this.viz);
       this.d3Graph = d3.select(this.viz);
-      dragLine = this.d3Graph.append('line')
-        .attr('class', 'dragline hidden')
-        .attr('stroke-width', 2)
-        .attr('stroke', 'lightgrey')
     }
 
     shouldComponentUpdate(nextProps) {
       nodes = nextProps.nodes
       const {onClick} = this.props
-      createdLink = this.props.createdLink
       this.d3Graph = d3.select(this.viz);
       d3.select(this.svg)
-        .on('mousemove', mousemove)
-        .on('mouseup', mouseup)
-        .on('mousedown', (d) => {
-          // select node
-          slashing = (mousedownNode == null);
-          // console.log("slashing:", slashing)
 
-          // reposition drag line
-        })
       const d3Nodes = this.d3Graph.selectAll('.node')
         .data(nextProps.nodes, (node) => node.pid);
       d3Nodes.enter().append('g').call(enterNode)
@@ -314,6 +224,10 @@ class Graph extends Component {
       d3Messages.exit().call(exitMessage).remove() //remove();
       d3Messages.merge(msgEnter).call(updateMessage);
 
+      if (minted < this.props.minted) {
+        mint()
+        minted = this.props.minted
+      }
 
       // we should actually clone the nodes and links
       // since we're not supposed to directly mutate
@@ -325,7 +239,7 @@ class Graph extends Component {
 
     render() {
       return (
-        <svg ref={el => this.svg = el} id="border" width={width} height={height}>
+        <svg ref={el => this.svg = el} width={width} height={height}>
           <g ref={el => this.viz = el} />
         </svg>
       );

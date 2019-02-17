@@ -65,6 +65,11 @@ svg {
 	border-radius: 10px;
 }
 
+#border {
+	background-image: url("../images/namerica_border.svg");
+	border-radius: 10px;
+}
+
 .spend {
 	position: absolute;
 	top: 100%;

@@ -4,6 +4,7 @@ import Sandbox from './Sandbox';
 import SandboxOne from './SandboxOne/SandboxOne';
 import SandboxTwo from './SandboxTwo/SandboxTwo';
 import SandboxThree from './SandboxThree/SandboxThree';
+import SandboxFour from './SandboxFour/SandboxFour';
 
 import SandboxFive from './SandboxFive/SandboxFive';
 
@@ -45,7 +46,16 @@ const App = () => {
     <SandboxThree/>
     <p className="helper-text">Try to transact with your friends!</p>
     </div>
+
 <p>Centralized financial systems are not required to be transparent about their internal processes. Besides censorship, it is possible for other subtler abuses of power. The lack of transparency allows central operators like Wells Frogo to mint arbitrary amounts of money for those at the top. It is difficult to detect as all of the transaction data remains private to the central operator, and prosecution is often out of the question if the central operator happens to be your own government.</p>
+
+    <div className="interactive">
+    <SandboxFour/>
+    <p className="helper-text">You're paypal! Click </p>
+    </div>
+
+<p>Purus ut faucibus pulvinar elementum integer enim. Sagittis id consectetur purus ut faucibus pulvinar elementum integer enim. Egestas dui id ornare arcu odio ut sem. Consequat mauris nunc congue nisi vitae suscipit. Morbi tincidunt ornare massa eget. Nec tincidunt praesent semper feugiat. Ac auctor augue mauris augue neque gravida in. Nunc sed blandit libero volutpat sed cras ornare arcu dui. Mi ipsum faucibus vitae aliquet nec ullamcorper sit amet risus. Sed elementum tempus egestas sed sed risus. In hendrerit gravida rutrum quisque non tellus. Molestie at elementum eu facilisis. Odio aenean sed adipiscing diam donec adipiscing tristique. Sollicitudin tempor id eu nisl. Vel pharetra vel turpis nunc eget lorem dolor.</p>
+
     <div className="interactive">
     <SandboxFive/>
     <p className="helper-text">Try to connect to transact with your friends!</p>
