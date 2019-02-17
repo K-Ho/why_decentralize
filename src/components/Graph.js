@@ -18,8 +18,8 @@ var enterNode = (selection) => {
   selection.classed('node', true)
     .append('circle')
     .attr("r", d=>{
-      if (d.constructor.name === 'Spender') return 20
-
+      if (d.constructor.name === 'Paypal') return 20
+      return 10
     })
     .attr("cx", d=> d.x)
     .attr("cy", d=> d.y)
@@ -42,13 +42,14 @@ var enterLink = (selection) => {
   selection.classed('link', true)
     .attr("stroke-width", 2)
     .attr("stroke", 'grey')
-};
-
-var updateLink = (selection) => {
-  selection.attr("x1", (d) => d.source.x)
+    .attr("x1", (d) => d.source.x)
     .attr("y1", (d) => d.source.y)
     .attr("x2", (d) => d.target.x)
     .attr("y2", (d) => d.target.y);
+};
+
+var updateLink = (selection) => {
+
 };
 
 // **** Message Functions  ****
@@ -118,17 +119,6 @@ var resize = (selection) => {
 class Graph extends Component {
     componentDidMount() {
       this.d3Graph = d3.select(this.viz);
-      // force.on('tick', () => {
-      //   // after force calculation starts, call updateGraph
-      //   // which uses d3 to manipulate the attributes,
-      //   // and React doesn't have to go through lifecycle on each tick
-      //   this.d3Graph.call(updateGraph);
-      // });
-
-      // this.d3Graph.call(resize);
-      // d3.select(window).on("resize", () => {
-      //   this.d3Graph.call(resize);
-      // });
     }
 
     shouldComponentUpdate(nextProps) {
@@ -138,11 +128,10 @@ class Graph extends Component {
       const d3Nodes = this.d3Graph.selectAll('.node')
         .data(nextProps.nodes, (node) => node.pid);
       d3Nodes.enter().append('g').call(enterNode)
-      .on('click', function(d){
-        onClick(d, d3.event.pageX, d3.event.pageY)
-      })
+      // .on('click', function(d){
+      //   onClick(d, d3.event.pageX, d3.event.pageY)
+      // })
       d3Nodes.exit().remove();
-      // d3Nodes.call(updateNode);
 
       const d3Links = this.d3Graph.selectAll('.link')
         .data(nextProps.links)

@@ -15,13 +15,17 @@ for (const node of nodes) {
   // connect them
   for (const peer of network.peers[node.pid]) {
     data.links.push({
-      source: node.pid,
-      target: peer.pid
+      source: node,
+      target: peer
     })
   }
 }
-nodes[0].x = 100
+nodes[0].x = 300
 nodes[0].y = 100
+nodes[1].x = 100
+nodes[1].y = 200
+nodes[2].x = 500
+nodes[2].y = 200
 
 class Sandbox extends Component {
   constructor() {
