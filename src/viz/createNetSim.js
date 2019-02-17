@@ -24,12 +24,12 @@ for (let i = 1; i <= numNodes; i++) {
 }
 console.log(network.peers)
 // console.log(paypal.state)
-const tx = nodes[0].generateTx(nodes[1].pid, 60, 'mint')
+const tx = nodes[0].generateTx(nodes[1].pid, 70, 'mint')
 nodes[0].applyTransaction(tx)
 for (let i = 0; i < 3; i ++) {
 console.log(network.peers[nodes[i].pid].length)
 }
-const tx1 = nodes[1].generateTx(nodes[2].pid, 10, 'send')
+const tx1 = nodes[1].generateTx(nodes[2].pid, 14, 'send')
 network.broadcastTo(nodes[1].pid, nodes[0], tx1)
 network.run(100)
 console.log(paypal.state)

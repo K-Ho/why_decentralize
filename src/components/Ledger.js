@@ -17,7 +17,7 @@ class Ledger extends Component {
 		const balances = users.map( (x, i) => {
 			return <div className="ledger-row">
 						<span className="ledger-name">{usernames[i + shift]}</span>
-						<span className="ledger-balance">{paypal.state[x].balance}</span>
+						<span className="ledger-balance">{'$' + paypal.state[x].balance + '.00'}</span>
 					</div>
 		} )
 
