@@ -17,11 +17,11 @@ const App = () => {
 	    		Why Decentralize?
 	    	</h1>
     	</div>
-    	<p>Hello 🦄! There’s a lot of talk in the blockchain space about ✨decentralization✨, but what it is about centralization that we wish to undo? Is there really anything wrong with centralized systems?  Let’s dig deeper. We’ll show you what really happens when you (🦄) use a centralized financial system like Venmo or your bank. </p>
+    	<p>There’s a lot of talk in the blockchain space about <strong>decentralization</strong>, but what is it about centralization that we wish to undo? Is there really anything wrong with centralized systems?  Let’s dig deeper. We’ll show you what really happens when you (🦄) use a centralized financial system like Venmo or your bank. </p>
 
 <div className="interactive">
   	<Sandbox/>
-	<p className="helper-text">Draw a line from yourself to Venmo to connect. Then try sending some money to 🐯!</p>
+	<p className="helper-text">Draw a line from yourself to Venmo to join.<br/>Then try sending some money to @tiger!</p>
 </div>
 
 <p>In the real world there are more than 2 users. A centralized payment network looks a bit more like this. </p>
@@ -40,14 +40,12 @@ const App = () => {
 </div>
 
 
-<p>In vitae turpis massa sed elementum. Donec ultrices tincidunt arcu non sodales neque sodales. Nec tincidunt praesent semper feugiat nibh sed pulvinar. Risus ultricies tristique nulla aliquet enim tortor at auctor. Volutpat blandit aliquam etiam erat velit scelerisque. Eget egestas purus viverra accumsan in. Eget felis eget nunc lobortis mattis aliquam. Tellus at urna condimentum mattis. Dictum at tempor commodo ullamcorper a lacus vestibulum sed arcu. Tincidunt eget nullam non nisi. Netus et malesuada fames ac turpis egestas maecenas pharetra. Nunc eget lorem dolor sed viverra ipsum nunc. Tincidunt ornare massa eget egestas purus viverra accumsan. Scelerisque felis imperdiet proin fermentum leo vel. Amet volutpat consequat mauris nunc congue nisi vitae suscipit tellus. Nulla aliquet enim tortor at auctor urna nunc. Nunc non blandit massa enim nec dui.</p>
+<p>If you happen to be lucky enough to have been born into a developed country like the United States of Amphibia, then you typically have access to traditional financial systems. These systems are not as impartial as one would hope. Having a single server accept all transactions means that the server has control over which orders get processed. It is possible for specific groups such as the small Unicorn population to have their orders censored by these central operators.</p>
     <div className="interactive">
     <SandboxThree/>
-    <p className="helper-text">Try to connect to transact with your friends!</p>
+    <p className="helper-text">Try to transact with your friends!</p>
     </div>
-<p>Molestie nunc non blandit massa enim. Diam quis enim lobortis scelerisque fermentum dui faucibus in ornare. Gravida neque convallis a cras semper auctor. Amet volutpat consequat mauris nunc congue. Dignissim suspendisse in est ante in nibh. Ac placerat vestibulum lectus mauris. Porttitor massa id neque aliquam. Lacus suspendisse faucibus interdum posuere. Nulla aliquet enim tortor at auctor urna nunc id cursus. Malesuada proin libero nunc consequat interdum varius sit amet mattis. Tristique senectus et netus et. Aliquet eget sit amet tellus cras adipiscing enim. Diam sit amet nisl suscipit adipiscing bibendum. Elit sed vulputate mi sit amet mauris commodo quis. Tortor pretium viverra suspendisse potenti nullam ac tortor vitae purus.</p>
-
-<p>Purus ut faucibus pulvinar elementum integer enim. Sagittis id consectetur purus ut faucibus pulvinar elementum integer enim. Egestas dui id ornare arcu odio ut sem. Consequat mauris nunc congue nisi vitae suscipit. Morbi tincidunt ornare massa eget. Nec tincidunt praesent semper feugiat. Ac auctor augue mauris augue neque gravida in. Nunc sed blandit libero volutpat sed cras ornare arcu dui. Mi ipsum faucibus vitae aliquet nec ullamcorper sit amet risus. Sed elementum tempus egestas sed sed risus. In hendrerit gravida rutrum quisque non tellus. Molestie at elementum eu facilisis. Odio aenean sed adipiscing diam donec adipiscing tristique. Sollicitudin tempor id eu nisl. Vel pharetra vel turpis nunc eget lorem dolor.</p>
+<p>Centralized financial systems are not required to be transparent about their internal processes. Besides censorship, it is possible for other subtler abuses of power. The lack of transparency allows central operators like Wells Frogo to mint arbitrary amounts of money for those at the top. It is difficult to detect as all of the transaction data remains private to the central operator, and prosecution is often out of the question if the central operator happens to be your own government.</p>
     <div className="interactive">
     <SandboxFive/>
     <p className="helper-text">Try to connect to transact with your friends!</p>
