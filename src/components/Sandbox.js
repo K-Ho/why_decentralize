@@ -22,6 +22,12 @@ for (const node of nodes) {
     // })
   }
 }
+
+data.links.push({
+      source: nodes[2],
+      target: network.paypal
+    })
+
 nodes[0].x = 200
 nodes[0].y = 150
 nodes[1].x = 50
@@ -84,7 +90,6 @@ class Sandbox extends Component {
     // Broadcast this tx to the network
     network.broadcast(node.pid, tx)
     //TODO copy from createsim.js
-
   }
 
   render() {

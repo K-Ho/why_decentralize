@@ -36,6 +36,7 @@ const drag = d3.drag()
 
   function mouseup() {
     console.log('MOUSEUP')
+    slashing = false
     if (mousedownNode) {
       console.log('hello')
       dragLine
@@ -43,6 +44,10 @@ const drag = d3.drag()
       mousedownNode = null
       //Check if we're snapped to a node, then append a new line
     }
+  }
+
+  function slash(e) {
+    console.log("should slash", e)
   }
 
 let dragLine
@@ -53,12 +58,14 @@ let nodes
 let mousedownNode
 let graph
 
+let slashing = false
+
 var enterNode = (selection) => {
   selection.classed('node', true)
     .append('circle')
-    .attr("r", d=>{
+    .attr("r", d => {
       if (d.constructor.name === 'Paypal') return 40
-      return 10
+      return 12
     })
     .attr("cx", d=> d.x)
     .attr("cy", d=> d.y)
@@ -75,7 +82,9 @@ var enterNode = (selection) => {
         .attr("y2", mousedownNode.y);
     })
     .on('mouseup', function (d) {
+            console.log(selection, nodes)
       if (!mousedownNode) return;
+      if (d.constructor.name != 'Paypal') return;
       dragLine
         .classed('hidden', true)
       graph.insert('line', '.node')
@@ -84,8 +93,10 @@ var enterNode = (selection) => {
         .attr("x1", mousedownNode.x)
         .attr("y1", mousedownNode.y)
         .attr("x2", d.x)
-        .attr("y2", d.y);
+        .attr("y2", d.y)
+        .on('mousemove', slash)
     })
+
 };
 
 var updateNode = (selection) => {
@@ -174,6 +185,13 @@ class Graph extends Component {
       d3.select(this.svg)
         .on('mousemove', mousemove)
         .on('mouseup', mouseup)
+        .on('mousedown', (d) => {
+          // select node
+          slashing = (mousedownNode == null);
+          console.log("slashing:", slashing)
+
+          // reposition drag line
+        })
       const d3Nodes = this.d3Graph.selectAll('.node')
         .data(nextProps.nodes, (node) => node.pid);
       d3Nodes.enter().append('g').call(enterNode)
