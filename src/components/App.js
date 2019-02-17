@@ -14,9 +14,9 @@ const App = () => {
     	</div>
     	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tempus imperdiet nulla malesuada pellentesque. Egestas fringilla phasellus faucibus scelerisque eleifend. Sed arcu non odio euismod lacinia at quis. Vitae elementum curabitur vitae nunc sed. Pharetra massa massa ultricies mi quis. Lorem sed risus ultricies tristique nulla. Enim lobortis scelerisque fermentum dui. Lacus luctus accumsan tortor posuere. Leo integer malesuada nunc vel risus commodo. Nisl nunc mi ipsum faucibus vitae aliquet nec ullamcorper. Leo vel fringilla est ullamcorper eget nulla.</p>
 
-<div class="interactive">
-  <Sandbox/>
-	<p class="helper-text">This is helper text. This helps people.</p>
+<div className="interactive">
+  	<Sandbox/>
+	<p className="helper-text">This is helper text. This helps people.</p>
 </div>
 
 <p>Ut lectus arcu bibendum at. Ultricies lacus sed turpis tincidunt id aliquet risus feugiat. Leo duis ut diam quam nulla porttitor massa id. Amet consectetur adipiscing elit duis tristique. A pellentesque sit amet porttitor eget dolor morbi non. Vitae nunc sed velit dignissim sodales ut eu sem. Est ullamcorper eget nulla facilisi. Nulla at volutpat diam ut venenatis tellus in metus vulputate. Blandit aliquam etiam erat velit scelerisque in. Ipsum dolor sit amet consectetur adipiscing elit. Praesent tristique magna sit amet purus gravida. Lorem ipsum dolor sit amet. Felis eget velit aliquet sagittis id. Egestas pretium aenean pharetra magna ac placerat vestibulum lectus. Mi sit amet mauris commodo quis. Habitant morbi tristique senectus et netus et malesuada fames. Vulputate ut pharetra sit amet aliquam. Integer feugiat scelerisque varius morbi enim.</p>

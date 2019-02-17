@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {nodes, network} from '../viz/createNetSim'
 import Graph from './Graph.js'
 import Controls from './Controls.js'
+import Ledger from './Ledger.js'
 import * as d3 from 'd3'
 
 const TICK_LENGTH = 300 //ms
@@ -21,12 +22,12 @@ for (const node of nodes) {
     })
   }
 }
-nodes[0].x = 300
-nodes[0].y = 100
-nodes[1].x = 100
-nodes[1].y = 200
-nodes[2].x = 500
-nodes[2].y = 200
+nodes[0].x = 200
+nodes[0].y = 150
+nodes[1].x = 50
+nodes[1].y = 250
+nodes[2].x = 350
+nodes[2].y = 250
 
 class Sandbox extends Component {
   constructor() {
@@ -84,7 +85,6 @@ class Sandbox extends Component {
     network.broadcast(node.pid, tx)
     //TODO copy from createsim.js
 
-    // initiate random spend
   }
 
   render() {
@@ -95,10 +95,13 @@ class Sandbox extends Component {
           nodes={nodes}
           links={data.links}
           messages = {messages || []}
-       />
-       <Controls
-        spend={this.spend.bind(this, nodes[1])}
-       />
+        />
+        <Ledger
+          paypal = {network.paypal}
+        />
+        <Controls
+          spend={this.spend.bind(this, nodes[1])}
+        />
       </div>
     );
   }
