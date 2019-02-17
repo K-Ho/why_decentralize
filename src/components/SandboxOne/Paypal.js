@@ -46,6 +46,7 @@ class Paypal extends Client {
         } else if (tx.contents.type === 'send') { // Send coins
             if (this.state[tx.contents.from].balance - tx.contents.amount < 0) {
                 this.badSpend = true
+                this.state[tx.contents.from].nonce++
                 return
             } else {
                 this.badSpend = false

@@ -5,7 +5,7 @@ const Controls = ({spend, disabled}) => {
 
   return (
         <Button className="spend" onClick={spend} disabled = {disabled} >
-          Send $10 to @tiger
+          Send $10 to a friend
          </Button>
   );
 }

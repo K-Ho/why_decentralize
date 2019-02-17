@@ -28,8 +28,9 @@ for (const node of nodes) {
 //       target: network.paypal
 //     })
 
+// Venmo
 nodes[0].x = 200
-nodes[0].y = 140
+nodes[0].y = 145
 
 nodes[1].x = 25
 nodes[1].y = 160
@@ -37,20 +38,20 @@ nodes[1].y = 160
 nodes[2].x = 330
 nodes[2].y = 270
 
-nodes[3].x = 100
-nodes[3].y = 100
+nodes[3].x = 25
+nodes[3].y = 80
 
 nodes[4].x = 300
-nodes[4].y = 50
+nodes[4].y = 120
 
-nodes[5].x = 50
-nodes[5].y = 300
+nodes[5].x = 360
+nodes[5].y = 160
 
-nodes[6].x = 250
-nodes[6].y = 150
+nodes[6].x = 130
+nodes[6].y = 80
 
-nodes[7].x = 150
-nodes[7].y = 250
+nodes[7].x = 130
+nodes[7].y = 200
 
 
 nodes[0].color = "#0089FF"
@@ -69,7 +70,6 @@ class SandboxOne extends Component {
     this.state = {
       speed: 1,
       messages: [],
-      disabled: true
     }
   }
 
@@ -106,10 +106,6 @@ class SandboxOne extends Component {
     this.setState({messages: messages})
   }
 
-  createdLink() {
-    this.setState({disabled: false})
-  }
-
   getCurrNode(nodeId) {
     if (network) {
       return network.agents.find((node) => node.pid === nodeId);
@@ -129,29 +125,28 @@ class SandboxOne extends Component {
   spend(currNode){
     console.log(currNode)
     const node = this.getCurrNode(currNode.pid)
-    const tx = node.generateTx(nodes[2].pid, 10, 'send')
+
+    const recipient = nodes[Math.floor(Math.random() * (nodes.length-2) + 2)]
+    const tx = node.generateTx(recipient.pid, 10, 'send')
     // Broadcast this tx to the network
     network.broadcast(node.pid, tx)
     //TODO copy from createsim.js
   }
 
   render() {
-    const {messages, speed, disabled} = this.state
+    const {messages, speed} = this.state
     return (
       <div id="sandbox-container">
         <Graph
           nodes={nodes}
           links={data.links}
           messages = {messages || []}
-          createdLink = {this.createdLink.bind(this)}
         />
         <Ledger
-          linked = {!disabled}
           paypal = {network.paypal}
         />
         <Controls
           spend={this.spend.bind(this, nodes[1])}
-          disabled = {disabled}
         />
       </div>
     );
