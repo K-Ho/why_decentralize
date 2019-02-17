@@ -6,7 +6,7 @@ var util = require('util')
 
 // ****** Test this out using a simulated network ****** //
 const numNodes = 2
-const network = new NetworkSimulator(15, 0);
+const network = new NetworkSimulator(5, 0);
 const nodes = []
 // Create new nodes based on our wallets, and connect them to the network
 const paypal = new Paypal(network);
