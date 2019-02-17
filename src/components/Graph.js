@@ -66,7 +66,7 @@ var enterNode = (selection) => {
   selection.classed('node', true)
     .append('circle')
     .attr("r", d => {
-      if (d.constructor.name === 'Paypal') return 25
+      if (d.constructor.name === 'Paypal') return 40
       return 0
     })
     .attr("xlink:href", d => {
@@ -147,10 +147,10 @@ var enterNode = (selection) => {
 
     selection.append("svg:image")
     .attr("xlink:href", d => d.img)
-    .attr("x", d => (d.x-14))
-    .attr("y", d => (d.y-14))
-    .attr("height", d => d.img ? 28 : 0)
-    .attr("width", d => d.img ? 28 : 0)
+    .attr("x", d => (d.x-20))
+    .attr("y", d => (d.y-20))
+    .attr("height", d => d.img ? 40 : 0)
+    .attr("width", d => d.img ? 40 : 0)
     .on('mouseup', function (d) {
             console.log(selection, nodes)
       if (!mousedownNode) return;
@@ -253,11 +253,11 @@ var exitMessage = (selection) => {
   graph
   .insert('circle', '.node')
   .attr('fill',
-    (nodes[0].state[nodes[1].pid].balance === 6) ? 'red' :
+    (nodes[0].badSpend) ? 'red' :
     '#7ed321')
   .attr('cx', d=> nodes[0].x)
   .attr('cy', d=> nodes[0].y)
-  .attr('r', d=> 33)
+  .attr('r', d=> 47)
   .attr('opacity', d=> 0)
   .transition()
   .duration(400)
