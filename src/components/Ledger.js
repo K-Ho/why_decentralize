@@ -4,7 +4,12 @@ class Ledger extends Component {
 	render() {
 		const paypal = this.props.paypal
 		const pid = paypal.pid
-		const users = Object.keys(paypal.state).filter((x) => { return x != pid })
+		
+		let users = Object.keys(paypal.state).filter((x) => { return x != pid })
+
+		if (!this.props.linked) {
+			users.shift()
+		}
 
 		const balances = users.map( x => {
 			return <div className="ledger-row">
@@ -15,6 +20,9 @@ class Ledger extends Component {
 
 		return(
 			<div className="ledger">
+				<div className="ledger-row">
+					<span id="venmo-database">Venmo's Database</span>
+				</div>
 				{balances}
 			</div>
 		);

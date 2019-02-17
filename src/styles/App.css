@@ -96,3 +96,8 @@ svg {
 	width: 20%;
 	color: grey;
 }
+
+#venmo-database {
+	font-size: 14px;
+	font-weight: bold;
+}

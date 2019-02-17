@@ -69,8 +69,13 @@ var enterNode = (selection) => {
       if (d.constructor.name === 'Paypal') return 40
       return 12
     })
+    .attr("xlink:href", d => {
+      if (d.constructor.name != 'Paypal') return;
+      return d.img
+    })
     .attr("cx", d=> d.x)
     .attr("cy", d=> d.y)
+    .attr("fill", d=> d.color)
     .on('mousedown', (d) => {
       if (linkCreated) return
       // select node
@@ -102,6 +107,29 @@ var enterNode = (selection) => {
       createdLink()
     })
 
+    selection.append("svg:image")
+    .attr("xlink:href", d => d.img)
+    .attr("x", d => (d.x-20))
+    .attr("y", d => (d.y-20))
+    .attr("height", d => d.img ? 40 : 0)
+    .attr("width", d => d.img ? 40 : 0)
+    .on('mouseup', function (d) {
+            console.log(selection, nodes)
+      if (!mousedownNode) return;
+      if (d.constructor.name != 'Paypal') return;
+      dragLine
+        .classed('hidden', true)
+      graph.insert('line', '.node')
+        .attr('stroke-width', 2)
+        .attr('stroke', 'grey')
+        .attr("x1", mousedownNode.x)
+        .attr("y1", mousedownNode.y)
+        .attr("x2", d.x)
+        .attr("y2", d.y)
+        .on('mousemove', slash)
+      linkCreated = true
+      createdLink()
+    })
 };
 
 var updateNode = (selection) => {
