@@ -10,12 +10,16 @@ body {
 	background-color: #eee;
 }
 
+h6 {
+	color: grey;
+}
+
 #title {
 	margin: auto;
 	width: 90%;
-	padding-top: 35px;
+	padding-top: 75px;
 	padding-bottom: 20px;
-	text-align:center
+	text-align: center;
 }
 
 #interactive-five {
@@ -50,6 +54,12 @@ body {
 	color: white;
 }
 
+#logo {
+width: 25px;
+margin-left: 300px;
+padding-bottom: 40px;
+}
+
 .ledger-row {
 	display: flex;
 	flex-direction: row;
@@ -57,7 +67,9 @@ body {
 }
 
 #bottom {
-	padding-bottom: 400px;
+	padding-bottom: 10px;
+	font-weight: 400;
+	font-size: 18px;
 }
 
 #world {
@@ -164,6 +176,7 @@ svg {
 }
 
 #venmo-database {
-	font-size: 14px;
+	font-size: 16px;
+	padding-bottom: 3px;
 	font-weight: bold;
 }
