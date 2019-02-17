@@ -70,7 +70,6 @@ class SandboxOne extends Component {
     this.state = {
       speed: 1,
       messages: [],
-      disabled: true
     }
   }
 
@@ -107,10 +106,6 @@ class SandboxOne extends Component {
     this.setState({messages: messages})
   }
 
-  createdLink() {
-    this.setState({disabled: false})
-  }
-
   getCurrNode(nodeId) {
     if (network) {
       return network.agents.find((node) => node.pid === nodeId);
@@ -130,29 +125,28 @@ class SandboxOne extends Component {
   spend(currNode){
     console.log(currNode)
     const node = this.getCurrNode(currNode.pid)
-    const tx = node.generateTx(nodes[2].pid, 10, 'send')
+
+    const recipient = nodes[Math.floor(Math.random() * (nodes.length-2) + 2)]
+    const tx = node.generateTx(recipient.pid, 10, 'send')
     // Broadcast this tx to the network
     network.broadcast(node.pid, tx)
     //TODO copy from createsim.js
   }
 
   render() {
-    const {messages, speed, disabled} = this.state
+    const {messages, speed} = this.state
     return (
       <div id="sandbox-container">
         <Graph
           nodes={nodes}
           links={data.links}
           messages = {messages || []}
-          createdLink = {this.createdLink.bind(this)}
         />
         <Ledger
-          linked = {!disabled}
           paypal = {network.paypal}
         />
         <Controls
           spend={this.spend.bind(this, nodes[1])}
-          disabled = {disabled}
         />
       </div>
     );
