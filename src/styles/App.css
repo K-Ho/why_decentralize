@@ -97,6 +97,14 @@ svg {
 	position: relative;
 }
 
+#sandbox-container-five {
+	padding-bottom: 10px;
+	width: 600px;
+	height: 300px;
+	border-radius: 10px;
+	position: relative;
+}
+
 .helper-text {
 	position: relative;
 /*	text-align: right;*/

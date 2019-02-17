@@ -18,12 +18,11 @@ const App = () => {
 	    		Why Decentralize?
 	    	</h1>
     	</div>
-    	<p>Hello 🦄! There’s a lot of talk in the blockchain space about ✨decentralization✨, but what it is about centralization that we wish to undo? Is there really anything wrong with centralized systems?  Let’s dig deeper. We’ll show you what really happens when you (🦄) use a centralized financial system like Venmo or your bank. </p>
-        <br/>
-        <p className="helper-text">Draw a line from yourself to Venmo to connect. Then try sending some money to 🐯!</p>
-<div className="interactive">
-  	<Sandbox/>
-</div>
+    	<p>There’s a lot of talk in the blockchain space about <strong>decentralization</strong>, but what is it about centralization that we wish to undo? Is there really anything wrong with centralized systems?  Let’s dig deeper. We’ll show you what really happens when you (🦄) use a centralized financial system like Venmo or your bank. </p>
+          <p className="helper-text">Draw a line from yourself to Venmo to join.<br/>Then try sending some money to @tiger!</p>
+        <div className="interactive">
+            <Sandbox/>
+        </div>
 <br/>
 <p>In the real world there are more than 2 users. A centralized payment network looks a bit more like this. </p>
 <br/>
@@ -41,27 +40,35 @@ const App = () => {
 </div>
 
 
-<p>In vitae turpis massa sed elementum. Donec ultrices tincidunt arcu non sodales neque sodales. Nec tincidunt praesent semper feugiat nibh sed pulvinar. Risus ultricies tristique nulla aliquet enim tortor at auctor. Volutpat blandit aliquam etiam erat velit scelerisque. Eget egestas purus viverra accumsan in. Eget felis eget nunc lobortis mattis aliquam. Tellus at urna condimentum mattis. Dictum at tempor commodo ullamcorper a lacus vestibulum sed arcu. Tincidunt eget nullam non nisi. Netus et malesuada fames ac turpis egestas maecenas pharetra. Nunc eget lorem dolor sed viverra ipsum nunc. Tincidunt ornare massa eget egestas purus viverra accumsan. Scelerisque felis imperdiet proin fermentum leo vel. Amet volutpat consequat mauris nunc congue nisi vitae suscipit tellus. Nulla aliquet enim tortor at auctor urna nunc. Nunc non blandit massa enim nec dui.</p>
+<p>If you happen to be lucky enough to have been born into a developed country like the United States of Amphibia, then you typically have access to traditional financial systems. These systems are not as impartial as one would hope. Having a single server accept all transactions means that the server has control over which orders get processed. It is possible for specific groups such as the small Unicorn population to have their orders censored by these central operators.</p>
     <div className="interactive">
     <SandboxThree/>
-    <p className="helper-text">Try to connect to transact with your friends!</p>
+    <p className="helper-text">Try to transact with your friends!</p>
     </div>
 
-    <p>t amet mauris commodo quis. Tortor pretium viverra suspendisse potenti nullam ac tortor vitae purus.</p>
+<p>Centralized financial systems are not required to be transparent about their internal processes. Besides censorship, it is possible for other subtler abuses of power. The lack of transparency allows central operators like Wells Frogo to mint arbitrary amounts of money for those at the top. It is difficult to detect as all of the transaction data remains private to the central operator, and prosecution is often out of the question if the central operator happens to be your own government.</p>
+
     <div className="interactive">
     <SandboxFour/>
     <p className="helper-text">You're paypal! Click </p>
     </div>
 
-<p>Purus ut faucibus pulvinar elementum integer enim. Sagittis id consectetur purus ut faucibus pulvinar elementum integer enim. Egestas dui id ornare arcu odio ut sem. Consequat mauris nunc congue nisi vitae suscipit. Morbi tincidunt ornare massa eget. Nec tincidunt praesent semper feugiat. Ac auctor augue mauris augue neque gravida in. Nunc sed blandit libero volutpat sed cras ornare arcu dui. Mi ipsum faucibus vitae aliquet nec ullamcorper sit amet risus. Sed elementum tempus egestas sed sed risus. In hendrerit gravida rutrum quisque non tellus. Molestie at elementum eu facilisis. Odio aenean sed adipiscing diam donec adipiscing tristique. Sollicitudin tempor id eu nisl. Vel pharetra vel turpis nunc eget lorem dolor.</p>
+<p>What if we could create an open financial system that doesn’t exclude or censor people, or allow the minting of arbitrary amounts of money? <br/><br/>
+
+1. Anyone should be able to join the network.<br/>
+2. The network should be censorship-resistant.<br/>
+3. More than one entity should be in charge of maintaining balances to prevent minting.<br/><br/>
+
+Good news! Lots of people are learning about and building such networks.</p>
+
+
     <div className="interactive">
     <SandboxFive/>
     <p className="helper-text">Try to connect to transact with your friends!</p>
     </div>
-<p>Dui sapien eget mi proin sed libero enim sed. Sapien eget mi proin sed libero enim sed faucibus. Augue ut lectus arcu bibendum at varius. Odio tempor orci dapibus ultrices in iaculis nunc. Mauris cursus mattis molestie a iaculis at erat pellentesque. Quam nulla porttitor massa id. Sapien eget mi proin sed libero enim. Eget mauris pharetra et ultrices neque ornare. Eu nisl nunc mi ipsum faucibus vitae aliquet nec ullamcorper. Iaculis eu non diam phasellus vestibulum lorem sed. Scelerisque fermentum dui faucibus in. Eget egestas purus viverra accumsan in nisl. Duis ultricies lacus sed turpis tincidunt id aliquet.</p>
 
-<p>Augue interdum velit euismod in pellentesque massa placerat duis ultricies. Arcu risus quis varius quam quisque id diam vel quam. Semper viverra nam libero justo. Arcu non sodales neque sodales ut etiam sit. Et netus et malesuada fames. Consequat mauris nunc congue nisi vitae suscipit tellus mauris. Ligula ullamcorper malesuada proin libero nunc consequat interdum varius sit. Viverra nibh cras pulvinar mattis nunc sed blandit. Sed id semper risus in. Et netus et malesuada fames ac turpis egestas integer. Malesuada nunc vel risus commodo viverra maecenas accumsan. Sagittis aliquam malesuada bibendum arcu vitae elementum curabitur vitae nunc. Netus et malesuada fames ac turpis egestas sed tempus urna. Consequat ac felis donec et odio pellentesque diam volutpat. Quis lectus nulla at volutpat diam ut venenatis tellus. Congue mauris rhoncus aenean vel elit. Nunc lobortis mattis aliquam faucibus purus. Sapien faucibus et molestie ac feugiat sed lectus. Mauris pellentesque pulvinar pellentesque habitant morbi. Gravida quis blandit turpis cursus in hac.</p>
-    </div>
+<p>Check out <a href="http://cryptoeconomics.study">cryptoeconomics.study</a> to learn more!</p>
+</div>
   );
 }
 
