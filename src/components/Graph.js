@@ -56,7 +56,9 @@ let dragLine
 
 let nodes
 let mousedownNode
+let linkCreated = false
 let graph
+let createdLink
 
 let slashing = false
 
@@ -70,6 +72,7 @@ var enterNode = (selection) => {
     .attr("cx", d=> d.x)
     .attr("cy", d=> d.y)
     .on('mousedown', (d) => {
+      if (linkCreated) return
       // select node
       mousedownNode = d;
 
@@ -95,6 +98,8 @@ var enterNode = (selection) => {
         .attr("x2", d.x)
         .attr("y2", d.y)
         .on('mousemove', slash)
+      linkCreated = true
+      createdLink()
     })
 
 };
@@ -180,7 +185,8 @@ class Graph extends Component {
 
     shouldComponentUpdate(nextProps) {
       nodes = nextProps.nodes
-      const {onClick, makeLink} = this.props
+      const {onClick} = this.props
+      createdLink = this.props.createdLink
       this.d3Graph = d3.select(this.viz);
       d3.select(this.svg)
         .on('mousemove', mousemove)

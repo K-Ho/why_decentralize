@@ -40,7 +40,8 @@ class Sandbox extends Component {
     super()
     this.state = {
       speed: 1,
-      messages: []
+      messages: [],
+      disabled: true
     }
   }
 
@@ -65,6 +66,10 @@ class Sandbox extends Component {
     network.tick()
     const messages = this.setMessageQueue(network)
     this.setState({messages: messages})
+  }
+
+  createdLink() {
+    this.setState({disabled: false})
   }
 
   getCurrNode(nodeId) {
@@ -93,19 +98,21 @@ class Sandbox extends Component {
   }
 
   render() {
-    const {messages, speed} = this.state
+    const {messages, speed, disabled} = this.state
     return (
       <div id="sandbox-container">
         <Graph
           nodes={nodes}
           links={data.links}
           messages = {messages || []}
+          createdLink = {this.createdLink.bind(this)}
         />
         <Ledger
           paypal = {network.paypal}
         />
         <Controls
           spend={this.spend.bind(this, nodes[1])}
+          disabled = {disabled}
         />
       </div>
     );

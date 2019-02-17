@@ -1,7 +1,6 @@
 import React from 'react';
 import '../styles/App.css';
 import Sandbox from './Sandbox';
-import Sandbox5 from '../c2_components/Sandbox5-p2p.js';
 
 
 
