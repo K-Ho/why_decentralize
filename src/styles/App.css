@@ -18,6 +18,13 @@ body {
 	text-align:center
 }
 
+#interactive-five {
+	width: 100%;
+	height: 300px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
 .interactive {
 	width: 100%;
 	height: 335px;
@@ -49,12 +56,8 @@ body {
 	justify-content: space-between;
 }
 
-.ledger-name {
-
-}
-
-.ledger-balance {
-
+#bottom {
+	padding-bottom: 400px;
 }
 
 #world {
