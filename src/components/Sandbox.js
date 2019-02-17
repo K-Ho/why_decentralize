@@ -29,7 +29,7 @@ data.links.push({
     })
 
 nodes[0].x = 200
-nodes[0].y = 140
+nodes[0].y = 145
 
 nodes[1].x = 25
 nodes[1].y = 160
