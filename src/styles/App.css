@@ -92,6 +92,44 @@ svg {
 	font-weight: 500;
 }
 
+.spend:active {
+	background-color: #FFC25D;
+	border: 2px solid #9B6100;
+	color: #9B6100;
+
+	/*font-family: "San Francisco Display";*/
+	font-weight: 500;
+}
+
+.spend:hover {
+	background-color: #FFE0AD;
+	border: 2px solid #9B6100;
+	color: #9B6100;
+
+	/*font-family: "San Francisco Display";*/
+	font-weight: 500;
+}
+
+.spend:disabled {
+	background-color: #FFC25D;
+	border: 2px solid #9B6100;
+	color: #9B6100;
+	opacity: 0.4;
+
+	/*font-family: "San Francisco Display";*/
+	font-weight: 500;
+}
+
+#paypal-spend {
+	background-color: #55B0FF;
+	border: 2px solid #0089FF;
+	color: white;
+}
+
+#paypal-spend:hover {
+	background-color: #99D0FF;
+}
+
 #sandbox-container {
 	padding-bottom: 35px;
 	width: 600px;
