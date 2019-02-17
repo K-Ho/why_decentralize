@@ -43,7 +43,7 @@ var enterNode = (selection) => {
 var updateNode = (selection) => {
   selection
     .attr('fill', (d) => {
-      if (d.constructor.name !== 'Paypal') return
+      if (d.pid !== nodes[0].pid) return
       // console.log('update', d.state)
       return d.color
     })

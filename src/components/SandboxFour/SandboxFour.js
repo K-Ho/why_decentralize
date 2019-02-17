@@ -127,7 +127,7 @@ class SandboxOne extends Component {
     console.log(currNode)
 
     const recipient = nodes[4]
-    const tx = currNode.generateTx(recipient.pid, 20, 'mint')
+    const tx = currNode.generateTx(recipient.pid, 10, 'mint')
     // Broadcast this tx to the network
     currNode.applyTransaction(tx)
     //TODO copy from createsim.js

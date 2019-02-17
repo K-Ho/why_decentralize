@@ -66,11 +66,11 @@ var enterNode = (selection) => {
   selection.classed('node', true)
     .append('circle')
     .attr("r", d => {
-      if (d.constructor.name === 'Paypal') return 25
+      if (d.pid === nodes[0].pid) return 25
       return 0
     })
     .attr("xlink:href", d => {
-      if (d.constructor.name != 'Paypal') return;
+      if (d.pid !== nodes[0].pid) return;
       return d.img
     })
     .attr("cx", d=> d.x)
@@ -92,7 +92,7 @@ var enterNode = (selection) => {
     .on('mouseup', function (d) {
             // console.log(selection, nodes)
       if (!mousedownNode) return;
-      if (d.constructor.name != 'Paypal') return;
+      if (d.pid !== nodes[0].pid) return;
       dragLine
         .classed('hidden', true)
       graph.insert('line', '.node')
@@ -112,7 +112,7 @@ var enterNode = (selection) => {
       .attr('font-size', 40)
       .attr("x", d => (d.x - 22))
       .attr("y", d=> (d.y +15))
-      .text((d) => {if(d.constructor.name != 'Paypal') return (d.emoji)})
+      .text((d) => {if(d.pid !== nodes[0].pid) return (d.emoji)})
       .on('mousedown', (d) => {
         if (linkCreated) return
         // select node
@@ -129,7 +129,7 @@ var enterNode = (selection) => {
       .on('mouseup', function (d) {
               // console.log(selection, nodes)
         if (!mousedownNode) return;
-        if (d.constructor.name != 'Paypal') return;
+        if (d.pid !== nodes[0].pid) return;
         dragLine
           .classed('hidden', true)
         graph.insert('line', '.node')
@@ -154,7 +154,7 @@ var enterNode = (selection) => {
     .on('mouseup', function (d) {
             // console.log(selection, nodes)
       if (!mousedownNode) return;
-      if (d.constructor.name != 'Paypal') return;
+      if (d.pid !== nodes[0].pid) return;
       dragLine
         .classed('hidden', true)
       graph.insert('line', '.node')
@@ -173,7 +173,7 @@ var enterNode = (selection) => {
 var updateNode = (selection) => {
   selection
     .attr('fill', (d) => {
-      if (d.constructor.name !== 'Paypal') return
+      if (d.pid !== nodes[0].pid) return
       // console.log('update', d.state)
       return d.color
     })
