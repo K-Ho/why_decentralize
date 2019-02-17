@@ -57,11 +57,11 @@ nodes[0].color = "#0089FF"
 nodes[0].img = "venmo.svg"
 nodes[1].emoji = '🦄'
 nodes[2].emoji = '🐯'
-nodes[3].emoji = '🦄'
-nodes[4].emoji = '🐯'
-nodes[5].emoji = '🦄'
-nodes[6].emoji = '🐯'
-nodes[7].emoji = '🦄'
+nodes[3].emoji = '🐹'
+nodes[4].emoji = '🐸'
+nodes[5].emoji = '🦊'
+nodes[6].emoji = '🐨'
+nodes[7].emoji = '🐔'
 
 class SandboxOne extends Component {
   constructor() {
