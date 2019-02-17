@@ -48,7 +48,7 @@ const App = () => {
     <SandboxThree/>
     </div>
 <br/>
-<p>Centralized financial systems are not required to be transparent about their internal processes. Besides censorship, it is possible for other subtler abuses of power. The lack of transparency allows central operators like Wells Frogo to mint arbitrary amounts of money for those at the top. It is difficult to detect as all of the transaction data remains private to the central operator, and prosecution is often out of the question if the central operator happens to be your own government.</p>
+<p>Centralized financial systems are not required to be transparent about their internal processes. Besides censorship, it is possible for other subtler abuses of power. The lack of transparency allows central operators like Wells Frogo to mint arbitrary amounts of money for those at the top. We put a lot of trust in central operators to keep our funds secure, and for banks, we trust that they won't print so much money that everyone's money becomes worthless.</p>
 <br/>
 <p className="helper-text">You're paypal! Click to mint money for frog!</p>
     <div className="interactive">
