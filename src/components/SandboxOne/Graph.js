@@ -83,7 +83,9 @@ var enterMessage = (selection) => {
     .attr("y", d=> (getNodeById(d.sender).y + 10))
     .text('💵')
     .append('tspan')
-    .text('🦄➡️🐯')
+    .text(d=> {
+      console.log(d)
+      return getNodeById(d.sender).emoji + '➡️' + getNodeById(d.message.contents.to).emoji})
     .attr('font-size', 15)
     .attr('dx', -38)
     .attr('dy', 12)
