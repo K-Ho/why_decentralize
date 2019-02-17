@@ -6,7 +6,7 @@
 }
 
 body {
-	background-color: #ccc;
+	background-color: #eee;
 }
 
 #title {
@@ -54,6 +54,10 @@ body {
 
 .ledger-balance {
 
+}
+
+#world {
+	background-image: url("../images/world.svg") !important;
 }
 
 svg {
