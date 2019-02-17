@@ -63,12 +63,12 @@ const App = () => {
 Good news! Lots of people are learning about and building such networks.</p>
 
 
-    <div className="interactive">
+    <div id="interactive-five">
     <SandboxFive/>
     <p className="helper-text">Try to connect to transact with your friends!</p>
     </div>
 
-<p>Check out <a href="http://cryptoeconomics.study">cryptoeconomics.study</a> to learn more!</p>
+<p id="bottom">Check out <a href="http://cryptoeconomics.study">cryptoeconomics.study</a> to learn more!</p>
 </div>
   );
 }
