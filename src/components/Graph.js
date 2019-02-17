@@ -3,8 +3,6 @@ import * as d3 from 'd3';
 
 var width = '100%';
 var height = '100%';
-//Make responsive
-var force = d3.forceSimulation()
 
 var zoom = d3.zoom();
 
@@ -14,6 +12,7 @@ var zoom = d3.zoom();
 
 // **** Node Functions  ****
 
+let nodes
 var enterNode = (selection) => {
   selection.classed('node', true)
     .append('circle')
@@ -65,7 +64,7 @@ var enterMessage = (selection) => {
 }
 
 var getNodeById = (id) => {
-  return force.nodes().find(
+  return nodes.find(
     (node) => node.pid === id
   )
 }
@@ -75,7 +74,9 @@ const getMsgPos = (msg, coord) => {
   const length = msg.recvTime - msg.sentTime
   const progress = distance/length
   const recCoord = getNodeById(msg.recipient)[coord]
+  console.log(recCoord)
   const sentCoord = getNodeById(msg.sender)[coord]
+  console.log(sentCoord)
   return progress * (recCoord - sentCoord) + sentCoord
 }
 
@@ -88,30 +89,6 @@ var updateMessage = (selection) => {
   .attr("cy", d => getMsgPos(d, 'y'))
 }
 
-// **** Graph Functions  ****
-
-var updateGraph = (selection) => {
-  selection.selectAll('.node')
-    .call(updateNode);
-  selection.selectAll('.link')
-    .call(updateLink)
-  // selection.selectAll('.message')
-  //   .call(updateMessage)
-};
-
-var zoomed = (selection, width, height) => {
-  // Need to get the geometry right here
-  selection.attr('transform',
-            'translate(' + (width/2 - 900) + ', ' + (height/2 - 400) + ')scale(' + 1.5 + ')');
-  console.log("Zoomed", width, height)
-};
-
-var resize = (selection) => {
-  console.log("Resized")
-  width = window.innerWidth;
-  height = window.innerHeight;
-};
-
 // *****************************************************
 // ** Graph component
 // *****************************************************
@@ -122,9 +99,9 @@ class Graph extends Component {
     }
 
     shouldComponentUpdate(nextProps) {
+      nodes = nextProps.nodes
       const {onClick} = this.props
       this.d3Graph = d3.select(this.viz);
-      console.log('nextPropsNodes', nextProps.nodes)
       const d3Nodes = this.d3Graph.selectAll('.node')
         .data(nextProps.nodes, (node) => node.pid);
       d3Nodes.enter().append('g').call(enterNode)
@@ -154,12 +131,6 @@ class Graph extends Component {
       // props passed in from parent, and d3's force function
       // mutates the nodes and links array directly
       // we're bypassing that here for sake of brevity in example
-      force.nodes(nextProps.nodes)
-        .force("link", d3.forceLink(nextProps.links)
-          .id(d => d.pid)
-          .distance(d=>50)
-          .strength(.3)
-        );
       return false;
     }
 

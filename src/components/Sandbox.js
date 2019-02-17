@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {nodes, network} from '../viz/createNetSim'
 import Graph from './Graph.js'
+import Controls from './Controls.js'
 import * as d3 from 'd3'
 
 const TICK_LENGTH = 300 //ms
@@ -76,9 +77,9 @@ class Sandbox extends Component {
   // };
 
   spend(currNode){
+    console.log(currNode)
     const node = this.getCurrNode(currNode.pid)
-    const tx = node.generateTx(node.getRandomReceiver(), 10)
-    node.applyTransaction(tx)
+    const tx = node.generateTx(nodes[2].pid, 10, 'send')
     // Broadcast this tx to the network
     network.broadcast(node.pid, tx)
     //TODO copy from createsim.js
@@ -89,11 +90,16 @@ class Sandbox extends Component {
   render() {
     const {messages, speed} = this.state
     return (
-            <Graph
-              nodes={nodes}
-              links={data.links}
-              messages = {messages || []}
-           />
+      <div id="sandbox-container">
+        <Graph
+          nodes={nodes}
+          links={data.links}
+          messages = {messages || []}
+       />
+       <Controls
+        spend={this.spend.bind(this, nodes[1])}
+       />
+      </div>
     );
   }
 }
