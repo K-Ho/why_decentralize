@@ -57,7 +57,7 @@ body {
 }
 
 svg {
-	background-color: white;
+	background-image: url("../images/namerica.svg");
 	border-radius: 10px;
 }
 
