@@ -3,6 +3,7 @@
 .App {
 	width: 600px;
 	margin: auto;
+	font-size: 16px;
 }
 
 body {
@@ -66,7 +67,7 @@ svg {
 }
 
 #border {
-	background-image: url("../images/namerica_border.svg");
+	background-image: url("../images/wall.svg");
 	border-radius: 10px;
 }
 
@@ -98,14 +99,14 @@ svg {
 
 .helper-text {
 	position: relative;
-	text-align: right;
-	top: -300px;
+/*	text-align: right;*/
+/*	top: -300px;
 	right: 100px;
 	margin: 10px;
-	padding-right: 10px;
+	padding-right: 10px;*/
 	font-size: 12px;
-	width: 80px;
-	color: grey;
+/*	width: 80px;*/
+	color: dimgrey;
 }
 
 

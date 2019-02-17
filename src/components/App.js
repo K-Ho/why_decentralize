@@ -19,17 +19,17 @@ const App = () => {
 	    	</h1>
     	</div>
     	<p>Hello 🦄! There’s a lot of talk in the blockchain space about ✨decentralization✨, but what it is about centralization that we wish to undo? Is there really anything wrong with centralized systems?  Let’s dig deeper. We’ll show you what really happens when you (🦄) use a centralized financial system like Venmo or your bank. </p>
-
+        <br/>
+        <p className="helper-text">Draw a line from yourself to Venmo to connect. Then try sending some money to 🐯!</p>
 <div className="interactive">
   	<Sandbox/>
-	<p className="helper-text">Draw a line from yourself to Venmo to connect. Then try sending some money to 🐯!</p>
 </div>
-
+<br/>
 <p>In the real world there are more than 2 users. A centralized payment network looks a bit more like this. </p>
-
+<br/>
+<p className="helper-text">Send money to a friend!</p>
 <div className="interactive">
     <SandboxOne/>
-  <p className="helper-text">Send money to a friend!</p>
 </div>
 
 <p>This is how centralized payment systems work. They’re super efficient and simple. (Our implementation of this Paypal operator is under 200 lines of code!) Having a single powerful server means that you can handle millions of transactions per second. This system is very fast and makes having many users easy. But not everyone can use these systems. 1.7 billion adults, largely in developing countries, remain unbanked.
