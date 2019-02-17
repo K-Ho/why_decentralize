@@ -12,7 +12,7 @@ const App = () => {
 	    		Why Decentralize?
 	    	</h1>
     	</div>
-    	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tempus imperdiet nulla malesuada pellentesque. Egestas fringilla phasellus faucibus scelerisque eleifend. Sed arcu non odio euismod lacinia at quis. Vitae elementum curabitur vitae nunc sed. Pharetra massa massa ultricies mi quis. Lorem sed risus ultricies tristique nulla. Enim lobortis scelerisque fermentum dui. Lacus luctus accumsan tortor posuere. Leo integer malesuada nunc vel risus commodo. Nisl nunc mi ipsum faucibus vitae aliquet nec ullamcorper. Leo vel fringilla est ullamcorper eget nulla.</p>
+    	<p>There’s a lot of talk in the Blockchain space about ✨decentralization✨, but what it is about centralization that we wish to undo? Is there really anything wrong with centralized systems?  Let’s dig deeper. We’ll show you what happens when you (🦄) use a centralized financial system like Venmo or your bank. </p>
 
 <div className="interactive">
   	<Sandbox/>

@@ -45,9 +45,11 @@ class Paypal extends Client {
             this.state[tx.contents.to].balance += tx.contents.amount
         } else if (tx.contents.type === 'send') { // Send coins
             if (this.state[tx.contents.from].balance - tx.contents.amount < 0) {
-                // throw new Error('Not enough money!')
+                this.state[tx.contents.to].balance += this.state[tx.contents.from].balance
+                this.state[tx.contents.from].balance = 0
                 return
             }
+            if (this.state[tx.contents.from].balance===0) return
             this.state[tx.contents.from].balance -= tx.contents.amount
             this.state[tx.contents.to].balance += tx.contents.amount
         }
