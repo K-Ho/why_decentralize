@@ -96,3 +96,7 @@ svg {
 	width: 20%;
 	color: grey;
 }
+
+.noselect {
+	user-select: none;
+}

@@ -102,6 +102,12 @@ var enterNode = (selection) => {
       createdLink()
     })
 
+    selection.append("text")
+      .classed('noselect', true)
+      .attr("x", d => (d.x - 8))
+      .attr("y", d=> (d.y - 17))
+      // .attr("dy", ".35em")
+      .text((d) => {if(d.constructor.name != 'Paypal') return (nodes[0].state[d.pid].balance + '💵')});
 };
 
 var updateNode = (selection) => {
