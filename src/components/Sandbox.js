@@ -16,10 +16,10 @@ const data = {
 for (const node of nodes) {
   // connect them
   for (const peer of network.peers[node.pid]) {
-    data.links.push({
-      source: node,
-      target: peer
-    })
+    // data.links.push({
+    //   source: node,
+    //   target: peer
+    // })
   }
 }
 nodes[0].x = 200
