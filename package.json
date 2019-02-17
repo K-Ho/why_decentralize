@@ -1,8 +1,8 @@
 {
   "name": "my-app",
-  "homepage": "https://k-ho.github.io/code/",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://k-ho.github.io/why_decentralize",
   "dependencies": {
     "blockies": "0.0.2",
     "canvas2svg": "^1.0.16",
