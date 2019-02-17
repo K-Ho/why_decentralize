@@ -253,7 +253,7 @@ var exitMessage = (selection) => {
   graph
   .insert('circle', '.node')
   .attr('fill',
-    (nodes[0].state[nodes[1].pid].balance === 0) ? 'red' :
+    (nodes[0].state[nodes[1].pid].balance === 6) ? 'red' :
     '#7ed321')
   .attr('cx', d=> nodes[0].x)
   .attr('cy', d=> nodes[0].y)
