@@ -70,6 +70,7 @@ class SandboxOne extends Component {
     this.state = {
       speed: 1,
       messages: [],
+      minted: 0
     }
   }
 
@@ -122,31 +123,32 @@ class SandboxOne extends Component {
   //   }
   // };
 
-  spend(currNode){
+  mint(currNode){
     console.log(currNode)
-    const node = this.getCurrNode(currNode.pid)
 
-    const recipient = nodes[Math.floor(Math.random() * (nodes.length-2) + 2)]
-    const tx = node.generateTx(recipient.pid, 10, 'send')
+    const recipient = nodes[4]
+    const tx = currNode.generateTx(recipient.pid, 20, 'mint')
     // Broadcast this tx to the network
-    network.broadcast(node.pid, tx)
+    currNode.applyTransaction(tx)
     //TODO copy from createsim.js
+    this.setState({minted: this.state.minted+1})
   }
 
   render() {
-    const {messages, speed} = this.state
+    const {messages, speed, minted} = this.state
     return (
       <div id="sandbox-container">
         <Graph
           nodes={nodes}
           links={data.links}
           messages = {messages || []}
+          minted = {minted}
         />
         <Ledger
           paypal = {network.paypal}
         />
         <Controls
-          spend={this.spend.bind(this, nodes[1])}
+          spend={this.mint.bind(this, nodes[0])}
         />
       </div>
     );

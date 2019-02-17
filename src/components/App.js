@@ -44,7 +44,12 @@ const App = () => {
     <SandboxThree/>
     <p className="helper-text">Try to connect to transact with your friends!</p>
     </div>
-<p>Molestie nunc non blandit massa enim. Diam quis enim lobortis scelerisque fermentum dui faucibus in ornare. Gravida neque convallis a cras semper auctor. Amet volutpat consequat mauris nunc congue. Dignissim suspendisse in est ante in nibh. Ac placerat vestibulum lectus mauris. Porttitor massa id neque aliquam. Lacus suspendisse faucibus interdum posuere. Nulla aliquet enim tortor at auctor urna nunc id cursus. Malesuada proin libero nunc consequat interdum varius sit amet mattis. Tristique senectus et netus et. Aliquet eget sit amet tellus cras adipiscing enim. Diam sit amet nisl suscipit adipiscing bibendum. Elit sed vulputate mi sit amet mauris commodo quis. Tortor pretium viverra suspendisse potenti nullam ac tortor vitae purus.</p>
+
+    <p>t amet mauris commodo quis. Tortor pretium viverra suspendisse potenti nullam ac tortor vitae purus.</p>
+    <div className="interactive">
+    <SandboxFour/>
+    <p className="helper-text">You're paypal! Click </p>
+    </div>
 
 <p>Purus ut faucibus pulvinar elementum integer enim. Sagittis id consectetur purus ut faucibus pulvinar elementum integer enim. Egestas dui id ornare arcu odio ut sem. Consequat mauris nunc congue nisi vitae suscipit. Morbi tincidunt ornare massa eget. Nec tincidunt praesent semper feugiat. Ac auctor augue mauris augue neque gravida in. Nunc sed blandit libero volutpat sed cras ornare arcu dui. Mi ipsum faucibus vitae aliquet nec ullamcorper sit amet risus. Sed elementum tempus egestas sed sed risus. In hendrerit gravida rutrum quisque non tellus. Molestie at elementum eu facilisis. Odio aenean sed adipiscing diam donec adipiscing tristique. Sollicitudin tempor id eu nisl. Vel pharetra vel turpis nunc eget lorem dolor.</p>
 

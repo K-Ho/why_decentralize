@@ -325,7 +325,7 @@ class Graph extends Component {
 
     render() {
       return (
-        <svg ref={el => this.svg = el} width={width} height={height}>
+        <svg ref={el => this.svg = el} id="border" width={width} height={height}>
           <g ref={el => this.viz = el} />
         </svg>
       );

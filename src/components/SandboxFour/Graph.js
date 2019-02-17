@@ -13,7 +13,7 @@ var height = '300px';
 
 let nodes
 let graph
-
+let minted = 0
 
 var enterNode = (selection) => {
   selection.classed('node', true)
@@ -118,6 +118,40 @@ const getMsgPos = (msg, coord) => {
   return progress * (recCoord - sentCoord) + sentCoord
 }
 
+var mint = () => {
+  graph
+  .insert('circle', '.node')
+  .attr('fill', '#7ed321')
+  .attr('cx', d=> nodes[4].x-2)
+  .attr('cy', d=> nodes[4].y)
+  .attr('r', d=> 25)
+  .attr('opacity', d=> 0)
+  .transition()
+  .duration(300)
+  .attr('opacity', d=> 1)
+  .transition()
+  .duration(400)
+  .attr('opacity', d=> 0)
+  .remove()
+
+  graph
+  .append('text')
+  .classed('noselect', true)
+  .attr('font-size', 30)
+  .attr('x', d=> nodes[0].x-30)
+  .attr('y', d=> (nodes[0].y - 30))
+  .text('🐸💰')
+  .attr('opacity', d=> 0)
+  .transition()
+  .duration(300)
+  .attr('opacity', d=> 1)
+  .transition()
+  .duration(400)
+  .attr('opacity', d=> 0)
+  .remove()
+
+}
+
 var updateMessage = (selection) => {
   selection
   .transition()
@@ -190,6 +224,10 @@ class Graph extends Component {
       d3Messages.exit().call(exitMessage).remove() //remove();
       d3Messages.merge(msgEnter).call(updateMessage);
 
+      if (minted < this.props.minted) {
+        mint()
+        minted = this.props.minted
+      }
 
       // we should actually clone the nodes and links
       // since we're not supposed to directly mutate

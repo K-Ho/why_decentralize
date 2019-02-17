@@ -4,8 +4,8 @@ import { Button} from 'react-bootstrap';
 const Controls = ({spend, disabled}) => {
 
   return (
-        <Button className="spend" onClick={spend} disabled = {disabled} >
-          Send $10 to a friend
+        <Button className="spend" onClick={spend} >
+          Mint $10 to @ribbit
          </Button>
   );
 }

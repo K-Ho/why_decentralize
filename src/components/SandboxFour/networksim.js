@@ -53,7 +53,6 @@ class NetworkSimulator {
     if (this.time in this.messageQueue) {
       for (let {recipient, message} of this.messageQueue[this.time]) {
         if (Math.random() > this.packetLoss) {
-          console.log('recipient', recipient)
           recipient.onReceive(message)
         }
       }
