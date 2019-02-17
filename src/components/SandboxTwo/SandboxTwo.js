@@ -29,28 +29,28 @@ for (const node of nodes) {
 //     })
 
 nodes[0].x = 200
-nodes[0].y = 140
+nodes[0].y = 145
 
-nodes[1].x = 25
-nodes[1].y = 160
+nodes[1].x = 165
+nodes[1].y = 260
 
 nodes[2].x = 330
 nodes[2].y = 270
 
-nodes[3].x = 100
-nodes[3].y = 100
+nodes[3].x = 25
+nodes[3].y = 80
 
 nodes[4].x = 300
-nodes[4].y = 50
+nodes[4].y = 120
 
-nodes[5].x = 50
-nodes[5].y = 300
+nodes[5].x = 360
+nodes[5].y = 160
 
-nodes[6].x = 250
-nodes[6].y = 150
+nodes[6].x = 130
+nodes[6].y = 80
 
-nodes[7].x = 150
-nodes[7].y = 250
+nodes[7].x = 130
+nodes[7].y = 200
 
 
 nodes[0].color = "#0089FF"
